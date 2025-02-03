@@ -1,0 +1,62 @@
+metadata:
+  storageAccountName: "devenazrgderpindlst01"
+  basePathIngestion: "abfss://metadata@devenazrgderpindlst01.dfs.core.windows.net/acciona/ingestion/"
+  basePathTransform: "abfss://metadata@devenazrgderpindlst01.dfs.core.windows.net/acciona/transform/"
+  container: "metadata"
+databricks:
+  secrets:
+    scope: "repin-secret-scope"
+landing:
+  storageAccountName: "devenazrgderpindlst01"
+  basePath:  "abfss://landing@devenazrgderpindlst01.dfs.core.windows.net/acciona/"
+  container: "landing/acciona"
+  landingPath: "landing"
+  errorPath: "error"
+  archivePath: "archive"
+  pendingDirectory: "pending"
+  unknownDirectory: "unknown"
+  invalidDirectory: "invalid"
+  corruptedDirectory: "corrupted"
+  schemaMismatchDirectory: "schema-mismatch"
+  streamingDirectory: "streaming"
+datalake:
+  storageAccountName: "devenazrgderpindlst01"
+  basePath: "abfss://datalake@devenazrgderpindlst01.dfs.core.windows.net/acciona/"
+  container: "datalake"
+  outputType:
+    value: "delta"
+  bronzePath: "bronze"
+  silverPath: "silver"
+  goldPath: "gold"
+  versionsPath: "versions"
+  dataPath: "data"
+  QAerrorPath: "qa/error"
+security:
+  identity:
+    servicePrincipalAppIdKey: "SPNIngestionClientId"
+    servicePrincipalTenantIdKey: "SPNIngestionTenantId"
+    servicePrincipalPasswordKey: "SPNIngestionPassword"
+  encryption:
+    encryptionType:
+      value: "pseudonymization"
+    masterKey: "Indation-Encryption-Master-Key"
+    encryptRawFile: true
+    hashSalt: "Indation-Encryption-HashSalt"
+    encryptionAlgorithm:
+      algorithm:
+        value: "AES"
+      mode:
+        value: "CTR"
+      padding: "NoPadding"
+environment:
+  value: "databricks"
+tmpDirectory: "dbfs:/tmp/ingestion/"
+silverStatistics:
+  statisticsSubPath: "silver/interno/applications/indation"
+  statisticsDatabase: "applications"
+  statisticsTable: "indation"
+  statisticsDatasetPath: "applications/dataset-indation/dataset-indation.json"
+goldStatistics:
+  statisticsSubPath: "gold/interno/applications/transform"
+  statisticsDatabase: "applications"
+  statisticsTable: "transform"

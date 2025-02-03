@@ -1,0 +1,138 @@
+{
+  "name": "product-subcategory-dlk",
+  "description":"product joined with subcategory, both from silver",
+  "typ": {"value":  "datalake"},
+  "datalakeTransformation":
+  {
+    "classification": "public",
+    "database": "production",
+    "table": "product_subcategory",
+    "partition": "ProductName/sum",
+    "mode": {"value":  "overwrite"},
+    "stages": [
+      {
+        "name": "stage table 1",
+        "description": "stage 1",
+        "typ": {"value":  "table"},
+        "stageTable": {
+          "name": "DimProduct",
+          "typ": {"value":  "silver"},
+          "database": "database",
+          "table": "DimProduct"
+        }
+      },
+      {
+        "name": "stage table 1 spark sql",
+        "description": "stage 1 bis, hace lo mismo que la anterior, pero vía spark.sql",
+        "typ": {"value":  "table"},
+        "stageTable": {
+          "name": "DimProduct",
+          "typ": {"value":  "sql"},
+          "table": "DimProduct",
+          "sql": "select * from database.DimProduct"
+        }
+      },
+      {
+        "name": "stage table 2",
+        "description": "stage 1.2",
+        "typ": {"value":  "table"},
+        "stageTable": {
+          "name": "DimProductSubcategory",
+          "typ": {"value":  "gold"},
+          "database": "database",
+          "table": "DimProductSubcategory",
+          "classification": "public",
+          "joinExpr": {
+            "typ": {"value":  "inner"},
+            "expr": "DimProductSubcategory.ProductSubcategoryKey = DimProduct.ProductSubcategoryKey"
+          }
+        }
+      },
+      {
+        "name": "stage 2 calculatedColumn",
+        "description": "stage 2",
+        "typ": {"value":  "calculatedColumn"},
+        "stageColumn": {
+          "name": "ProductName",
+          "description": "Product Description",
+          "typ": {"value":  "expr"},
+          "calculationExpr": "DimProduct.EnglishProductName"
+        }
+      },
+      {
+        "name": "stage select",
+        "description": "stage 3",
+        "typ": {"value":  "select"},
+        "stageSelect": [
+          {
+            "columnName": "DimProduct.ProductKey",
+            "columnDescription": "ProductKey",
+            "columnAlias": "ProductKey"
+          },
+          {
+            "columnName": "DimProductSubcategory.ProductSubcategoryKey",
+            "columnDescription": "ProductSubcategoryKey",
+            "columnAlias": "ProductSubcategoryKey"
+          },
+          {
+            "columnName": "ProductName",
+            "columnDescription": "ProductName",
+            "columnAlias": "ProductName"
+          }
+        ]
+      },
+      {
+        "name": "stage aggregation",
+        "description": "stage 4",
+        "typ": {"value":  "aggregation"},
+        "stageAggregation": {
+          "name": "agg 1",
+          "description": "agg 1",
+          "stageGroupBy": ["ProductName"],
+          "aggregations": [
+            {
+              "name": "sum",
+              "description": "agg",
+              "typ": {"value":  "sum"},
+              "col": "ProductKey"
+            },
+            {
+              "name": "sumDistinct",
+              "description": "agg",
+              "typ": {"value":  "sumDistinct"},
+              "col": "ProductKey"
+            },
+            {
+              "name": "count",
+              "description": "agg",
+              "typ": {"value":  "count"},
+              "col": "ProductKey"
+            }
+          ]
+        }
+      },
+      {
+        "name": "stage filter HL Road Frame - Black, 58",
+        "description": "stage 5",
+        "typ": {"value":  "filter"},
+        "tempView": "vw_result",
+        "stageFilter": {
+          "typ": {"value":  "expr"},
+          "filterExpr": "ProductName = 'HL Road Frame - Black, 58'"
+        }
+      },
+      {
+        "name": "stage final select spark sql",
+        "description": "stage 6",
+        "typ": {"value":  "table"},
+        "distinct": true,
+        "stageTable": {
+          "name": "FinalTable",
+          "typ": {"value":  "sql"},
+          "table": "FinalTableName",
+          "sql": "select ProductName, sum, sumDistinct, count from vw_result"
+        }
+      }
+    ]
+  }
+}

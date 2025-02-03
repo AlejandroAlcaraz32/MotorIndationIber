@@ -1,0 +1,179 @@
+{
+  "name": "transform-testMLTrans1",
+  "description":"Read table from silver",
+  "typ": {"value":  "datalake"},
+  "datalakeTransformation":
+  {
+    "classification": "featureengine",
+    "database": "data_output",
+    "table": "test_1a",
+    "partition": "",
+    "mode": {"value":  "overwrite"},
+    "stages": [
+      {
+        "name": "stage table 1 spark sql",
+        "description": "stage 1 bis, hace lo mismo que la anterior, pero vía spark.sql",
+        "typ": {"value":  "table"},
+        "stageTable": {
+          "name": "data",
+          "typ": {"value":  "test"},
+          "database": "origin",
+          "table": "data"
+        }
+      },
+      {
+        "name": "stage 2 calculatedColumn",
+        "description": "stage 2",
+        "typ": {"value":  "calculatedColumn"},
+        "stageColumn": {
+          "name": "duplicated",
+          "description": "Duplicated column data.int",
+          "typ": {"value":  "expr"},
+          "calculationExpr": "2*data.int"
+        }
+      },
+      {
+        "name": "stage select",
+        "description": "stage 3",
+        "typ": {"value":  "select"},
+        "stageSelect": [
+          {
+            "columnName": "adf-runid",
+            "columnDescription": "adf-runid",
+            "columnAlias": "adf-runid"
+          },
+          {
+            "columnName": "category",
+            "columnDescription": "category",
+            "columnAlias": "category"
+          },
+          {
+            "columnName": "index",
+            "columnDescription": "index",
+            "columnAlias": "index"
+          },
+          {
+            "columnName": "date",
+            "columnDescription": "date",
+            "columnAlias": "date"
+          },
+          {
+            "columnName": "double",
+            "columnDescription": "double",
+            "columnAlias": "double"
+          },
+          {
+            "columnName": "array",
+            "columnDescription": "array",
+            "columnAlias": "array"
+          },
+          {
+            "columnName": "int",
+            "columnDescription": "int",
+            "columnAlias": "int"
+          },
+          {
+            "columnName": "duplicated",
+            "columnDescription": "duplicated",
+            "columnAlias": "duplicated"
+          }
+        ]
+      },
+      {
+        "name": "stage aggregation",
+        "description": "stage 4",
+        "typ": {"value":  "aggregation"},
+        "stageAggregation": {
+          "name": "agg 1",
+          "description": "agg 1",
+          "stageGroupBy": ["category"],
+          "aggregations": [
+            {
+              "name": "sum",
+              "description": "agg",
+              "typ": {"value":  "sum"},
+              "col": "int"
+            },
+            {
+              "name": "sumDistinct",
+              "description": "agg",
+              "typ": {"value":  "sumDistinct"},
+              "col": "int"
+            },
+            {
+              "name": "count",
+              "description": "agg",
+              "typ": {"value":  "count"},
+              "col": "int"
+            },
+            {
+              "name": "countDistinct",
+              "description": "agg",
+              "typ": {"value":  "countDistinct"},
+              "col": "int"
+            },
+            {
+              "name": "mean",
+              "description": "agg",
+              "typ": {"value":  "mean"},
+              "col": "int"
+            },
+            {
+              "name": "avg",
+              "description": "agg",
+              "typ": {"value":  "avg"},
+              "col": "int"
+            },
+            {
+              "name": "min",
+              "description": "agg",
+              "typ": {"value":  "min"},
+              "col": "int"
+            },
+            {
+              "name": "max",
+              "description": "agg",
+              "typ": {"value":  "max"},
+              "col": "int"
+            },
+            {
+              "name": "stddev_samp",
+              "description": "agg",
+              "typ": {"value":  "stddev_samp"},
+              "col": "int"
+            },
+            {
+              "name": "stddev_pop",
+              "description": "agg",
+              "typ": {"value":  "stddev_pop"},
+              "col": "int"
+            }
+          ]
+        }
+      },
+
+      {
+        "name": "stage filter",
+        "description": "stage 5",
+        "typ": {"value":  "filter"},
+        "tempView": "vw_result",
+        "stageFilter": {
+          "typ": {"value":  "expr"},
+          "filterExpr": "category = 'Categ_2'"
+        }
+      },
+      {
+        "name": "stage final select spark sql",
+        "description": "stage 6",
+        "typ": {"value":  "table"},
+        "distinct": true,
+        "stageTable": {
+          "name": "FinalTable",
+          "typ": {"value":  "sql"},
+          "table": "FinalTableName",
+          "sql": "select category, sum, sumDistinct, count, countDistinct, mean, avg, min, max, stddev_samp, stddev_pop from vw_result"
+        }
+      }
+    ]
+  }
+}

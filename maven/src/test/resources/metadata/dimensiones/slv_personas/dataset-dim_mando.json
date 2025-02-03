@@ -1,0 +1,65 @@
+{
+  "name": "dim_mando",
+  "description": "",
+  "sourceName": "dimensiones",
+  "typ": { "value": "file" },
+  "version": 1,
+  "enabled": true,
+  "classification": { "value": "public" },
+  "effectiveDate": "2020-07-03 10:10:00",
+  "ingestionMode": { "value": "full_snapshot" },
+  "validationMode": { "value": "fail_fast" },
+  "createDatabase": true,
+  "database": "slv_personas",
+  "table": "dim_mando",
+  "partitionBy": "",
+  "permissiveThresholdType": {"value" :"absolute"},
+  "permissiveThreshold": 10,
+  "fileInput":{
+    "format": { "value": "csv" },
+    "filePattern": "MANDOS.csv",
+    "csv": {
+      "charset": "UTF-8",
+      "header": { "value": "first_line"},
+      "delimiter":  ";"
+    }
+  },
+  "schemaDefinition": {"value": "json-columns"},
+  "schemaFile": "",
+  "schemaColumns": {
+    "columns": [
+      {
+        "name": "Puestos",
+        "typ": {"value":  "string"},
+        "isPrimaryKey": false,
+        "isTimestamp": false,
+        "position": 1,
+        "sensitive": false
+      },
+      {
+        "name": "Equipo_a_cargo",
+        "typ": {"value":  "string"},
+        "isPrimaryKey": false,
+        "isTimestamp": false,
+        "position": 2,
+        "sensitive": false
+      },
+      {
+        "name": "Puesto_con_Responsabilidad",
+        "typ": {"value":  "string"},
+        "isPrimaryKey": false,
+        "isTimestamp": false,
+        "position": 3,
+        "sensitive": false
+      },
+      {
+        "name": "Mando",
+        "typ": {"value":  "string"},
+        "isPrimaryKey": false,
+        "isTimestamp": false,
+        "position": 4,
+        "sensitive": false
+      }
+    ]
+  }
+}

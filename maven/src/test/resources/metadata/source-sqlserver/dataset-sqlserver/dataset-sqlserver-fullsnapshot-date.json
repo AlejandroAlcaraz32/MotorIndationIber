@@ -1,0 +1,62 @@
+{
+  "name": "dataset-sqlserver-fullsnapshot-date",
+  "description": "dataset sqlserver full snapshot with date and datetime",
+  "sourceName": "source-sqlserver",
+  "typ": { "value": "table" },
+  "version": 1,
+  "enabled": true,
+  "classification": { "value": "public" },
+  "effectiveDate": "2020-01-01 00:00:00",
+  "ingestionMode": { "value": "full_snapshot" },
+  "validationMode": { "value": "fail_fast" },
+  "createDatabase": true,
+  "database": "Sales",
+  "table": "SalesOrderDay",
+  "partitionBy": "",
+  "permissiveThresholdType": {"value" :"absolute"},
+  "permissiveThreshold": 0,
+  "tableInput":{
+    "table": "SalesOrderDay",
+    "schema": "Sales"
+  },
+  "schemaDefinition": {"value": "json-columns"},
+  "schemaFile": "",
+  "schemaColumns": {
+    "columns": [
+      {
+        "typ": { "value": "integer"},
+        "name": "SalesOrderID",
+        "description": "SalesOrderID",
+        "position": 1,
+        "dictionaryLinkedName": "",
+        "isPrimaryKey": false,
+        "isTimestamp": false,
+        "isPartitionable": false,
+        "sensitive": false
+      }
+    ,{
+        "typ": { "value": "datetime"},
+        "name": "OrderDate",
+        "description": "OrderDate",
+        "position": 2,
+        "dictionaryLinkedName": "",
+        "isPrimaryKey": false,
+        "isTimestamp": false,
+        "isPartitionable": false,
+        "sensitive": false
+      }
+    ,{
+        "typ": { "value": "date"},
+        "name": "OrderDay",
+        "description": "OrderDay",
+        "position": 3,
+        "dictionaryLinkedName": "",
+        "isPrimaryKey": false,
+        "isTimestamp": false,
+        "isPartitionable": false,
+        "sensitive": false
+      }
+    ]
+  }
+}
+

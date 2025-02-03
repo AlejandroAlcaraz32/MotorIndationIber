@@ -1,0 +1,64 @@
+{
+  "name": "full-snapshot-worldcities-json-bz2",
+  "description": "Dataset Full Snapshot World Cities",
+  "sourceName": "source-json-5",
+  "typ": { "value": "file" },
+  "version": 1,
+  "enabled": true,
+  "classification": { "value": "public" },
+  "effectiveDate": "2020-07-03 10:10:00",
+  "ingestionMode": { "value": "full_snapshot" },
+  "validationMode": { "value": "fail_fast" },
+  "createDatabase": true,
+  "database": "database5",
+  "table": "full_snapshot_worldcities_json_bz2",
+  "partitionBy": "yyyy/mm/dd",
+  "permissiveThresholdType": {"value" :"absolute"},
+  "permissiveThreshold": 10,
+  "fileInput":{
+    "format": { "value": "json" },
+    "json": {
+      "encoding": "UTF-8",
+      "multiline": false,
+      "allowUnquotedFieldNames": false,
+      "allowNumericLeadingZeros": false
+    },
+    "filePattern": "<yyyy><mm><dd>_worldCities.json.bz2"
+  },
+  "schemaDefinition": {"value": "json-schema"},
+  "schemaJson": {
+    "type": "struct",
+    "fields": [
+      {
+        "name": "name",
+        "type": "string",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "country",
+        "type": "string",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "subcountry",
+        "type": "string",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "geonameid",
+        "type": "long",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "timeStamp",
+        "type": "timestamp",
+        "nullable": true,
+        "metadata": {}
+      }
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "demo-transformacion-sql",
+  "description":"Esta transformación se trae directamente la tabla",
+  "typ": {"value":  "sql"},
+  "sqlTransformation":
+  {
+    "sourceTables": [
+      {
+        "dlkClassification": "public",
+        "dlkDatabase": "eas-sdb-gld-kpi-operaciones",
+        "dlkTable": "demotransformacion",
+        "sqlConnection": "eas-sdb-gld-kpi-operaciones",
+        "sqlSchema": "datamart",
+        "sqlTable": "demotransformacion_sql",
+        "sqlWriteMode": {"value":  "overwrite"},
+        "cleanAfter": false,
+        "dropAfter": false
+      }
+    ],
+    "stages": [    ]
+  }
+}

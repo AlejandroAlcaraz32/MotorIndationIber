@@ -1,0 +1,61 @@
+{
+  "name": "topic-worldcities",
+  "description": "Dataset Topic Worlcities",
+  "sourceName": "source-kafka",
+  "typ": { "value": "topic" },
+  "version": 1,
+  "enabled": true,
+  "classification": { "value": "interno" },
+  "effectiveDate": "2020-07-03 10:10:00",
+  "ingestionMode": { "value": "incremental" },
+  "validationMode": { "value": "fail_fast" },
+  "createDatabase": true,
+  "database": "streaming",
+  "table": "worldcities",
+  "partitionBy": "",
+  "permissiveThresholdType": {"value" :"absolute"},
+  "permissiveThreshold": 10,
+  "kafkaInput": {
+    "topicKey": "maiazwe1glbiothdes",
+    "startingOffsets": { "value": "earliest" },
+    "jaasConfigurationKey": "keyVaultSecret",
+    "groupId": "maiazwe1desiotconsumer",
+    "avroSchemaUrl": "https://server/dataset"
+  },
+  "schemaDefinition": {"value": "json-schema"},
+  "schemaJson": {
+    "type": "struct",
+    "fields": [
+      {
+        "name": "name",
+        "type": "string",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "country",
+        "type": "string",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "subcountry",
+        "type": "string",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "geonameid",
+        "type": "long",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "timeStamp",
+        "type": "timestamp",
+        "nullable": true,
+        "metadata": {}
+      }
+    ]
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "name": "transform-testMLTrans2",
+  "description":"Read table from silver",
+  "typ": {"value":  "datalake"},
+  "datalakeTransformation":
+  {
+    "classification": "featureengine",
+    "database": "data_output",
+    "table": "test_1b",
+    "partition": "",
+    "mode": {"value":  "overwrite"},
+    "stages": [
+      {
+        "name": "stage table 1",
+        "description": "stage 1",
+        "typ": {"value":  "table"},
+        "stageTable": {
+          "name": "data",
+          "typ": {"value":  "test"},
+          "database": "origin",
+          "table": "data"
+        }
+      },
+      {
+        "name": "stage select",
+        "description": "stage 2",
+        "typ": {"value":  "select"},
+        "stageSelect": [
+          {
+            "columnName": "int",
+            "columnDescription": "int",
+            "columnAlias": "int_v2"
+          },
+          {
+            "columnName": "double",
+            "columnDescription": "double",
+            "columnAlias": "double_v2"
+          },
+          {
+            "columnName": "array",
+            "columnDescription": "array",
+            "columnAlias": "array_v2"
+          }
+        ]
+      },
+      {
+        "name": "stage table 2 join",
+        "description": "stage 2",
+        "typ": {"value":  "table"},
+        "stageTable": {
+          "name": "data_join",
+          "typ": {"value":  "test"},
+          "database": "origin",
+          "table": "data_join",
+          "joinExpr": {
+            "typ": {"value":  "inner"},
+            "expr": "index = data_join.index"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "name": "topic-maier",
+  "description": "Dataset Topic maier",
+  "sourceName": "source-eventhub",
+  "typ": { "value": "topic" },
+  "version": 1,
+  "enabled": true,
+  "classification": { "value": "interno" },
+  "effectiveDate": "2020-07-03 10:10:00",
+  "ingestionMode": { "value": "incremental" },
+  "validationMode": { "value": "fail_fast" },
+  "createDatabase": true,
+  "database": "streaming",
+  "table": "maier",
+  "partitionBy": "datalake_load_date_yyyy/datalake_load_date_mm/datalake_load_date_dd/datalake_load_date_hh",
+  "permissiveThresholdType": {"value" :"absolute"},
+  "permissiveThreshold": 10,
+  "kafkaInput": {
+    "topicKey": "maiazwe1glbiothdes",
+    "startingOffsets": { "value": "earliest" },
+    "jaasConfigurationKey": "Endpoint=sb://iothub-ns-maiazwe1gl-13391681-2809bc0d08.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=ueLbcQHBTPr1/TxQJfr+6wOxEp0mDmgGxrkhgKAYGUc=;EntityPath=maiazwe1glbiothdes",
+    "groupId": "maiazwe1desiotconsumer"
+  },
+  "schemaDefinition": {"value": "json-schema"},
+  "schemaJson": {
+    "type": "struct",
+    "fields": [
+        {
+            "name": "timestamp",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+        },
+        {
+            "name": "values",
+            "type": {
+                "type": "array",
+                "elementType": {
+                    "type": "struct",
+                    "fields": [
+                        {
+                            "name": "id",
+                            "type": "string",
+                            "nullable": true,
+                            "metadata": {}
+                        },
+                        {
+                            "name": "v",
+                            "type": "string",
+                            "nullable": true,
+                            "metadata": {}
+                        },
+                        {
+                            "name": "q",
+                            "type": "boolean",
+                            "nullable": true,
+                            "metadata": {}
+                        },
+                        {
+                            "name": "t",
+                            "type": "long",
+                            "nullable": true,
+                            "metadata": {}
+                        }
+                    ]
+                },
+                "containsNull": true
+            },
+            "nullable": true,
+            "metadata": {}
+        }
+    ]
+  }
+}

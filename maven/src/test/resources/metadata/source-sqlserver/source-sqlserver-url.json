@@ -1,0 +1,16 @@
+{
+  "name": "source-sqlserver-url",
+  "description":"Source Sql Server basado en url",
+  "typ": {"value":  "jdbc"},
+  "jdbcConnection": {
+    "driver": {
+      "value": "org.h2.Driver"
+    },
+    "jdbcUrlKey": "jdbc:h2:~/AdventureWorks2017;MODE=MSSQLServer;DB_CLOSE_ON_EXIT=FALSE;DATABASE_TO_UPPER=FALSE;",
+    "authenticationType": {
+      "value":  "user-password"
+    },
+    "userKey": "sa",
+    "passwordKey": ""
+  }
+}

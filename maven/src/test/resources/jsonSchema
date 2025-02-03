@@ -1,0 +1,31 @@
+{
+	"type": "struct",
+	"fields": [
+		{
+			"name": "UserName",
+			"type": "string",
+			"nullable": true
+		},
+		{
+			"name": "Concurrency",
+			"type": "long",
+			"nullable": true
+		},
+		{
+			"name": "FirstName",
+			"type": "string",
+			"nullable": true
+		},
+
+		{
+			"name": "LastName",
+			"type": "string",
+			"nullable": true
+		},
+		{
+			"name": "Gender",
+			"type": "string",
+			"nullable": true
+		}
+	]
+}

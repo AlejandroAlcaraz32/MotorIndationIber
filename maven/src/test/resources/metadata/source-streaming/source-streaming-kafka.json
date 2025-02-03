@@ -1,0 +1,10 @@
+{
+  "name": "source-kafka",
+  "description":"Source Kafka Broker",
+  "typ": {"value":  "kafka"},
+  "kafkaConnection": {
+    "saslMechanism": "PLAIN",
+    "securityProtocol": "SASL_SSL",
+    "bootstrapServers": "server:9093"
+  }
+}

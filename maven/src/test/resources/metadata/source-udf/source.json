@@ -1,0 +1,5 @@
+{
+  "name": "source-udf",
+  "description":"Source UDF",
+  "typ": {"value":  "directory"}
+}

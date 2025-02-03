@@ -1,0 +1,64 @@
+{
+  "name": "dataset-api-json-columns-1",
+  "description": "dataset api json columns 1",
+  "sourceName": "source-api",
+  "typ": { "value": "api" },
+  "version": 1,
+  "enabled": true,
+  "classification": { "value": "public" },
+  "effectiveDate": "2020-07-03 10:10:00",
+  "ingestionMode": { "value": "incremental" },
+  "validationMode": { "value": "fail_fast" },
+  "createDatabase": true,
+  "database": "database_api",
+  "table": "jsoncolumns_1",
+  "partitionBy": "",
+  "permissiveThresholdType": {"value" :"absolute"},
+  "permissiveThreshold": 10,
+  "apiInput":{
+    "endpoint": "People",
+    "parameters": "$filter=UserName+eq+'{lastValue}'",
+    "pagination": {
+      "typ": {"value" :"offset"},
+      "top": "$top",
+      "skip": "$skip",
+      "topSize": 10
+    },
+    "dataIn": "value",
+    "headers": {
+      "content-type": "json"
+    }
+  },
+  "schemaDefinition": {"value": "json-columns"},
+  "schemaFile": "/source-api/dataset-api-full/dataset-api-fullsnapshot_schema.json",
+  "schemaColumns": {
+    "columns": [
+      {
+        "name": "UserName",
+        "typ": {"value":  "string"},
+        "isPrimaryKey": true,
+        "isTimestamp": true,
+        "position": 1,
+        "sensitive": false
+      },
+      {
+        "name": "Concurrency",
+        "typ": {"value":  "long"},
+        "position": 2,
+        "sensitive": false
+      },
+      {
+        "name": "FirstName",
+        "typ": {"value":  "double"},
+        "position": 2,
+        "sensitive": false
+      },
+      {
+        "name": "LastName",
+        "typ": {"value":  "string"},
+        "position": 2,
+        "sensitive": false
+      }
+    ]
+  }
+}

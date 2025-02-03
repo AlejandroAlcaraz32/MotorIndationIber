@@ -1,0 +1,328 @@
+{
+	"name": "indation",
+	"description": "Estadísticas motor de ingesta ",
+	"sourceName": "applications",
+	"typ": {
+		"value": "file"
+	},
+	"version": 1,
+	"enabled": true,
+	"classification": {
+		"value": "interno"
+	},
+	"effectiveDate": "2020-01-01 00:00:00",
+	"ingestionMode": {
+		"value": "incremental"
+	},
+	"validationMode": {
+		"value": "fail_fast"
+	},
+	"createDatabase": true,
+	"database": "applications",
+	"table": "indation",
+	"partitionBy": "yyyy/mm/dd",
+	"permissiveThresholdType": {
+		"value": "percentage"
+	},
+	"permissiveThreshold": 1,
+	"fileInput": {
+		"filePattern": "<yyyy><mm><dd>_indation.json",
+		"format": {
+			"value": "json"
+		}
+	},
+	"schemaDefinition": {
+		"value": "json-schema"
+	},
+	"schemaJson": {
+		"type": "struct",
+		"fields": [
+			{
+				"name": "uuid",
+				"type": "string",
+				"nullable": true,
+				"metadata": {}
+			},
+			{
+				"name": "trigger",
+				"type": {
+					"type": "struct",
+					"fields": [
+						{
+							"name": "typ",
+							"type": "string",
+							"nullable": true,
+							"metadata": {}
+						},
+						{
+							"name": "id",
+							"type": "string",
+							"nullable": true,
+							"metadata": {}
+						}
+					]
+				},
+				"nullable": true,
+				"metadata": {}
+			},
+			{
+				"name": "engine",
+				"type": {
+					"type": "struct",
+					"fields": [
+						{
+							"name": "name",
+							"type": "string",
+							"nullable": true,
+							"metadata": {}
+						},
+						{
+							"name": "version",
+							"type": "string",
+							"nullable": true,
+							"metadata": {}
+						}
+					]
+				},
+				"nullable": true,
+				"metadata": {}
+			},
+			{
+				"name": "dataset",
+				"type": {
+					"type": "struct",
+					"fields": [
+						{
+							"name": "name",
+							"type": "string",
+							"nullable": true,
+							"metadata": {}
+						},
+						{
+							"name": "typ",
+							"type": "string",
+							"nullable": true,
+							"metadata": {}
+						},
+						{
+							"name": "version",
+							"type": "integer",
+							"nullable": true,
+							"metadata": {}
+						},
+						{
+							"name": "ingestion_mode",
+							"type": "string",
+							"nullable": true,
+							"metadata": {}
+						},
+						{
+							"name": "validation_mode",
+							"type": "string",
+							"nullable": true,
+							"metadata": {}
+						},
+						{
+							"name": "partition_by",
+							"type": "string",
+							"nullable": true,
+							"metadata": {}
+						}
+					]
+				},
+				"nullable": true,
+				"metadata": {}
+			},
+			{
+				"name": "origin",
+				"type": "string",
+				"nullable": true,
+				"metadata": {}
+			},
+			{
+				"name": "result",
+				"type": "string",
+				"nullable": true,
+				"metadata": {}
+			},
+			{
+				"name": "execution",
+				"type": {
+					"type": "struct",
+					"fields": [
+						{
+							"name": "start",
+							"type": "timestamp",
+							"nullable": true,
+							"metadata": {}
+						},
+						{
+							"name": "end",
+							"type": "timestamp",
+							"nullable": true,
+							"metadata": {}
+						},
+						{
+							"name": "duration",
+							"type": "float",
+							"nullable": true,
+							"metadata": {}
+						}
+					]
+				},
+				"nullable": true,
+				"metadata": {}
+			},
+			{
+				"name": "output_paths",
+				"type": {
+					"type": "struct",
+					"fields": [
+						{
+							"name": "unknown",
+							"type": "string",
+							"nullable": true,
+							"metadata": {}
+						},
+						{
+							"name": "corrupted",
+							"type": "string",
+							"nullable": true,
+							"metadata": {}
+						},
+						{
+							"name": "schema_mismatch",
+							"type": "string",
+							"nullable": true,
+							"metadata": {}
+						},
+						{
+							"name": "invalid",
+							"type": "string",
+							"nullable": true,
+							"metadata": {}
+						},
+						{
+							"name": "bronze",
+							"type": "string",
+							"nullable": true,
+							"metadata": {}
+						},
+						{
+							"name": "silver_principal",
+							"type": "string",
+							"nullable": true,
+							"metadata": {}
+						},
+						{
+							"name": "silver_historical",
+							"type": "string",
+							"nullable": true,
+							"metadata": {}
+						}
+					]
+				},
+				"nullable": true,
+				"metadata": {}
+			},
+			{
+				"name": "rows",
+				"type": {
+					"type": "struct",
+					"fields": [
+						{
+							"name": "bronze_valid",
+							"type": "long",
+							"nullable": true,
+							"metadata": {}
+						},
+						{
+							"name": "bronze_invalid",
+							"type": "long",
+							"nullable": true,
+							"metadata": {}
+						},
+						{
+							"name": "silver_valid",
+							"type": "long",
+							"nullable": true,
+							"metadata": {}
+						},
+						{
+							"name": "silver_invalid",
+							"type": "long",
+							"nullable": true,
+							"metadata": {}
+						},
+						{
+							"name": "quality_valid",
+							"type": "long",
+							"nullable": true,
+							"metadata": {}
+						},
+						{
+							"name": "quality_invalid",
+							"type": "long",
+							"nullable": true,
+							"metadata": {}
+						}
+					]
+				},
+				"nullable": true,
+				"metadata": {}
+			},
+			{
+				"name": "silver_persistence",
+				"type": {
+					"type": "struct",
+					"fields": [
+						{
+							"name": "database",
+							"type": "string",
+							"nullable": true,
+							"metadata": {}
+						},
+						{
+							"name": "principal_table",
+							"type": "string",
+							"nullable": true,
+							"metadata": {}
+						},
+						{
+							"name": "principal_previous_version",
+							"type": "long",
+							"nullable": true,
+							"metadata": {}
+						},
+						{
+							"name": "principal_current_version",
+							"type": "long",
+							"nullable": true,
+							"metadata": {}
+						},
+						{
+							"name": "historical_table",
+							"type": "string",
+							"nullable": true,
+							"metadata": {}
+						},
+						{
+							"name": "historical_previous_version",
+							"type": "long",
+							"nullable": true,
+							"metadata": {}
+						},
+						{
+							"name": "historical_current_version",
+							"type": "long",
+							"nullable": true,
+							"metadata": {}
+						}
+					]
+				},
+				"nullable": true,
+				"metadata": {}
+			}
+		]
+	}
+}

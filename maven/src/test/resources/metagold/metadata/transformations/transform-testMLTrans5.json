@@ -1,0 +1,26 @@
+{
+  "name": "transform-testMLTrans5",
+  "description":"Read table from silver",
+  "typ": {"value":  "datalake"},
+  "datalakeTransformation":
+  {
+    "classification": "featureengine",
+    "database": "data_output",
+    "table": "test_4",
+    "partition": "",
+    "mode": {"value":  "overwrite"},
+    "stages": [
+      {
+        "name": "stage table 1",
+        "description": "stage 1",
+        "typ": {"value":  "table"},
+        "stageTable": {
+          "name": "data",
+          "typ": {"value":  "test"},
+          "database": "origin",
+          "table": "data"
+        }
+      }
+    ]
+  }
+}

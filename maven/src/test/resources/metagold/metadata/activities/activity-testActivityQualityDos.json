@@ -1,0 +1,16 @@
+{
+  "name": "testActivityQualityDos",
+  "description":"activity for testing",
+  "transformations": [
+    "product-subcategory-dlk",
+    "category-qualitydos-dlk",
+    "plain-product-sql"
+  ],
+  "parameters": [
+    {
+      "shortName": "paramCat",
+      "longName": "paramCategory",
+      "description": "Param Category"
+    }
+  ]
+}

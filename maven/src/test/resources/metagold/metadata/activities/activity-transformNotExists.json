@@ -1,0 +1,9 @@
+{
+  "name": "transformNotExists",
+  "description":"activity for testing error due to transformation not found",
+  "transformations": [
+    "transformation_that_doesnt_exist"
+  ],
+  "parameters": [
+  ]
+}

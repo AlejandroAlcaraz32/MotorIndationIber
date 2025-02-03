@@ -1,0 +1,10 @@
+{
+  "name": "testConnection",
+  "description":"testConnection",
+  "typ": {"value":  "jdbc"},
+  "host": "localhost",
+  "port": "1433",
+  "database": "metagoldTest",
+  "userKey": "userKey",
+  "passwordKey": "passwordKey"
+}

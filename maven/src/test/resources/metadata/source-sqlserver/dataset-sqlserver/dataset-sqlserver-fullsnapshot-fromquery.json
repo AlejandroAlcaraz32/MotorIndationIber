@@ -1,0 +1,60 @@
+{
+  "name": "dataset-sqlserver-fullsnapshot-fromquery",
+  "description": "dataset sqlserver full snapshot from query",
+  "sourceName": "source-sqlserver",
+  "typ": { "value": "table" },
+  "version": 1,
+  "enabled": true,
+  "classification": { "value": "public" },
+  "effectiveDate": "2020-07-03 10:10:00",
+  "ingestionMode": { "value": "full_snapshot" },
+  "validationMode": { "value": "fail_fast" },
+  "createDatabase": true,
+  "database": "Production",
+  "table": "ProductCategoryFSVW",
+  "partitionBy": "",
+  "permissiveThresholdType": {"value" :"absolute"},
+  "permissiveThreshold": 10,
+  "tableInput":{
+    "table": "ProductCategory",
+    "query": "Select * from Production.ProductCategory where ModifiedDate >= '2001-01-01'"
+  },
+  "schemaDefinition": {"value": "json-columns"},
+  "schemaFile": "",
+  "schemaColumns": {
+    "columns": [
+      {
+        "name": "ProductCategoryID",
+        "typ": {"value":  "integer"},
+        "isPrimaryKey": true,
+        "isTimestamp": false,
+        "position": 1,
+        "sensitive": false
+      },
+      {
+        "name": "Name",
+        "typ": {"value":  "string"},
+        "isPrimaryKey": false,
+        "isTimestamp": false,
+        "position": 2,
+        "sensitive": false
+      },
+      {
+        "name": "rowguid",
+        "typ": {"value":  "string"},
+        "isPrimaryKey": false,
+        "isTimestamp": false,
+        "position": 3,
+        "sensitive": false
+      },
+      {
+        "name": "ModifiedDate",
+        "typ": {"value":  "datetime"},
+        "isPrimaryKey": false,
+        "isTimestamp": false,
+        "position": 4,
+        "sensitive": false
+      }
+    ]
+  }
+}

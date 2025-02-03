@@ -1,0 +1,25 @@
+{
+  "name": "demo-transformacion-dlk",
+  "description":"Ejecuta sql a medida y después filtra por un parámetro",
+  "typ": {"value":  "datalake"},
+  "datalakeTransformation":
+  {
+    "classification": "public",
+    "database": "eas_sdb_gld_kpi_operaciones",
+    "table": "demotransformacion",
+    "mode": {"value":  "truncate"},
+    "stages": [
+      {
+        "name": "spark_sql_completa",
+        "description": "Consulta sql compleja",
+        "typ": {"value":  "table"},
+        "stageTable": {
+          "name": "transformacion_sql",
+          "typ": {"value":  "sql"},
+          "table": "transformacion_sql",
+          "sql": "select * from database.DimProduct"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,292 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/object1646063812.json",
+  "title": "Root",
+  "type": "object",
+  "required": [
+    "name",
+    "description",
+    "sourceName",
+    "typ",
+    "version",
+    "enabled",
+    "ingestionMode",
+    "validationMode",
+    "createDatabase",
+    "classification",
+    "database",
+    "table",
+    "partitionBy",
+    "permissiveThresholdType",
+    "permissiveThreshold",
+    "schemaDefinition"
+
+  ],
+  "properties": {
+    "datasetId": {
+      "$id": "#root/datasetId",
+      "title": "Datasetid",
+      "type": "integer",
+      "default": "",
+      "examples": [
+        1
+      ],
+      "pattern": "^.*$"
+    },
+    "sourceId": {
+      "$id": "#root/sourceId",
+      "title": "sourceId",
+      "type": "integer",
+      "default": "",
+      "examples": [
+        1
+      ],
+      "pattern": "^.*$"
+    },
+    "specificationId": {
+      "$id": "#root/specificationId",
+      "title": "specificationId",
+      "type": "integer",
+      "default": "",
+      "examples": [
+        1
+      ],
+      "pattern": "^.*$"
+    },
+    "name": {
+      "$id": "#root/name",
+      "title": "Name",
+      "type": "string",
+      "default": "",
+      "examples": [
+        "dataset1"
+      ],
+      "pattern": "^.*$"
+    },
+    "description": {
+      "$id": "#root/description",
+      "title": "Description",
+      "type": "string",
+      "default": "",
+      "examples": [
+        "Dataset 1"
+      ],
+      "pattern": "^.*$"
+    },
+    "sourceName": {
+      "$id": "#root/sourceName",
+      "title": "Sourcename",
+      "type": "string",
+      "default": "",
+      "examples": [
+        "source1"
+      ],
+      "pattern": "^.*$"
+    },
+    "typ": {
+      "$id": "#root/typ",
+      "title": "Typ",
+      "type": "object",
+      "required": [
+        "value"
+      ]
+    },
+    "fileInput": {
+      "$id": "#root/fileInput",
+      "title": "Fileinput",
+      "type": "object",
+      "required": [
+        "format",
+        "filePattern"
+      ]
+    },
+    "kafkaInput": {
+      "$id": "#root/kafkaInput",
+      "title": "Kafkainput",
+      "type": "object",
+      "required": [
+        "topicKey",
+        "groupId",
+        "jaasConfigurationKey"
+      ]
+    },
+    "tableInput": {
+      "$id": "#root/tableInput",
+      "title": "Tableinput",
+      "type": "object",
+      "required": [
+        "table"
+      ]
+    },
+    "apiInput": {
+      "$id": "#root/apiInput",
+      "title": "APIinput",
+      "type": "object",
+      "required": [
+        "endpoint",
+        "pagination"
+      ]
+    },
+    "version": {
+      "$id": "#root/version",
+      "title": "Version",
+      "type": "integer",
+      "examples": [
+        1
+      ],
+      "default": 0
+    },
+    "enabled": {
+      "$id": "#root/enabled",
+      "title": "Enabled",
+      "type": "boolean",
+      "examples": [
+        true
+      ],
+      "default": true
+    },
+    "effectiveDate": {
+      "$id": "#root/effectiveDate",
+      "title": "Effectivedate",
+      "type": "string",
+      "default": "",
+      "examples": [
+        "2020-07-03 10:10:00"
+      ],
+      "pattern": "^.*$"
+    },
+    "ingestionMode": {
+      "$id": "#root/ingestionMode",
+      "title": "Ingestionmode",
+      "type": "object",
+      "required": [
+        "value"
+      ]
+    },
+    "validationMode": {
+      "$id": "#root/validationMode",
+      "title": "Validationmode",
+      "type": "object",
+      "required": [
+        "value"
+      ]
+    },
+    "createDatabase": {
+      "$id": "#root/createDatabase",
+      "title": "Createdatabase",
+      "type": "boolean",
+      "examples": [
+        false
+      ],
+      "default": true
+    },
+    "classification": {
+      "$id": "#root/classification",
+      "title": "Classification",
+      "type": "object",
+      "required": [
+        "value"
+      ]
+    },
+    "database": {
+      "$id": "#root/database",
+      "title": "Database",
+      "type": "string",
+      "default": "",
+      "examples": [
+        "database1"
+      ],
+      "pattern": "^.*$"
+    },
+    "table": {
+      "$id": "#root/table",
+      "title": "Table",
+      "type": "string",
+      "default": "",
+      "examples": [
+        "table1"
+      ],
+      "pattern": "^.*$"
+    },
+    "partitionBy": {
+      "$id": "#root/partitionBy",
+      "title": "Partitionby",
+      "type": "string",
+      "default": "",
+      "examples": [
+        "yyyy/mm/dd"
+      ],
+      "pattern": "^.*$"
+    },
+    "allowPartitionChange": {
+      "$id": "#root/allowPartitionChange",
+      "title": "Allowpartitionchange",
+      "type": "boolean",
+      "examples": [
+        false
+      ],
+      "default": true
+    },
+    "permissiveThresholdType": {
+      "$id": "#root/permissiveThresholdType",
+      "title": "Permissivethresholdtype",
+      "type": "object",
+      "required": [
+        "value"
+      ]
+    },
+    "permissiveThreshold": {
+      "$id": "#root/permissiveThreshold",
+      "title": "Permissivethreshold",
+      "type": "integer",
+      "examples": [
+        10
+      ],
+      "default": 0
+    },
+    "schemaDefinition": {
+      "$id": "#root/schemaDefinition",
+      "title": "Schemadefinition",
+      "type": "object",
+      "required": [
+        "value"
+      ]
+    },
+    "schemaFile": {
+      "$id": "#root/schemaFile",
+      "title": "Schemafile",
+      "type": "string",
+      "default": "",
+      "examples": [
+        "/source1/dataset1/avro-schema.json"
+      ],
+      "pattern": "^.*$"
+    },
+    "schemaColumns": {
+      "$id": "#root/schemaColumns",
+      "title": "Schemacolumns",
+      "type": "object",
+      "required": [
+        "columns"
+      ]
+    },
+    "schemaJson": {
+      "$id": "#root/schemaJson",
+      "title": "Schemajson",
+      "type": "object",
+      "required": [
+        "type",
+        "fields"
+      ]
+    },
+    "qualityRules": {
+      "$id": "#root/qualityRules",
+      "title": "Qualityrules",
+      "type": "object",
+      "required": [
+        "mode"
+      ]
+    }
+  }
+}

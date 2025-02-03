@@ -1,0 +1,58 @@
+{
+  "name": "category-quality-dlk",
+  "description": "Bring product category from silver",
+  "typ": {
+    "value": "datalake"
+  },
+  "datalakeTransformation": {
+    "classification": "public",
+    "database": "production",
+    "table": "category",
+    "mode": {
+      "value": "truncate"
+    },
+    "stages": [
+      {
+        "name": "stage bring category from silver",
+        "description": "stage 1",
+        "typ": {
+          "value": "table"
+        },
+        "stageTable": {
+          "name": "DimProductCategory",
+          "typ": {
+            "value": "silver"
+          },
+          "database": "database",
+          "table": "DimProductCategory"
+        }
+      }
+    ],
+    "qualityRules": {
+      "mode": { "value": "reject" },
+      "uniquenessRule": {
+        "rules": [
+          {
+            "name": "uniquenessrule1",
+            "columns": [
+              "EnglishProductCategoryName"
+            ]
+          }
+        ]
+      },
+
+      "notNullRule": [
+        "EnglishProductCategoryName",
+        "SpanishProductCategoryName"
+      ],
+      "expressionRule": {
+        "rules": [
+          {
+            "name": "exprRule1",
+            "expr": "ProductCategoryKey > 1"
+          }
+        ]
+      }
+    }
+  }
+}

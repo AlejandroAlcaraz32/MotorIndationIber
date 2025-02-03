@@ -1,0 +1,18 @@
+{
+  "name": "source-sqlserver",
+  "description":"Source Sql Server",
+  "typ": {"value":  "jdbc"},
+  "jdbcConnection": {
+    "driver": {
+      "value": "org.h2.Driver"
+    },
+    "host": "localhost",
+    "port": "1433",
+    "database": "AdventureWorks2017",
+    "authenticationType": {
+      "value":  "user-password"
+    },
+    "userKey": "sa",
+    "passwordKey": ""
+  }
+}

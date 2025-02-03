@@ -1,0 +1,24 @@
+{
+  "name": "dataset2",
+  "description": "Dataset 2",
+  "sourceName": "source1",
+  "typ": { "value": "file" },
+  "version": 1,
+  "enabled": true,
+  "ingestionMode": { "value": "incremental" },
+  "validationMode": { "value": "permissive" },
+  "createDatabase": false,
+  "database": "database1",
+  "table": "table2",
+  "partitionBy": "yyyy/mm/dd",
+  "permissiveThresholdType":  {"value" :"percentage"},
+  "permissiveThreshold": 10,
+  "fileInput":{
+    "format": { "value": "json" },
+    "filePattern": "<yyyy><mm><dd>_dataset2.json",
+    "json": {
+      "multiline": true
+    }
+  },
+  "schemaDefinition": {"value": "json-schema"}
+}

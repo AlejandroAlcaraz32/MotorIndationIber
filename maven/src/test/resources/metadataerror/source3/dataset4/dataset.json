@@ -1,0 +1,58 @@
+{
+  "name": "dataset4",
+  "description": "Dataset 4",
+  "sourceName": "source1",
+  "typ": { "value": "file" },
+  "version": 1,
+  "enabled": true,
+  "effectiveDate": "2020-07-03 10:10:00",
+  "ingestionMode": { "value": "full_snapshot" },
+  "validationMode": { "value": "permissive" },
+  "database": "database3",
+  "table": "table1",
+  "partitionBy": "yyyy/mm/dd",
+  "permissiveThresholdType":  {"value" :"percentage"},
+  "permissiveThreshold": 10,
+  "fileInput":{
+    "format": { "value": "fixed" },
+    "filePattern": "<yyyy><mm><dd>_dataset4.txt",
+    "csv": {
+      "charset": "UTF-8"
+    }
+  },
+  "schemaDefinition": {"value": "json-columns"},
+  "schemaColumns": {
+    "columns": [
+      {
+        "name": "column1",
+        "typ": {"value":  "float"},
+        "isPrimaryKey": true,
+        "isTimestamp": false,
+        "position": 1,
+        "length": 10,
+        "transformation" : {
+          "typ": {"value": "comma"}
+        },
+        "sensitive": false
+      },
+      {
+        "name": "column2",
+        "typ": {"value":  "string"},
+        "position": 2,
+        "length": 250,
+        "sensitive": false
+      },
+      {
+        "name": "column3",
+        "typ": {"value":  "datetime"},
+        "position": 3,
+        "length": 17,
+        "transformation" : {
+          "typ": {"value": "date"},
+          "pattern": "yyyymmdd HH:mm:ss"
+        },
+        "sensitive": false
+      }
+    ]
+  }
+}

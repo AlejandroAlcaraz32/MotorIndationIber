@@ -1,0 +1,115 @@
+{
+  "name": "dataset-api-json-schema",
+  "description": "dataset api json schema",
+  "sourceName": "source-api",
+  "typ": { "value": "api" },
+  "version": 1,
+  "enabled": true,
+  "classification": { "value": "public" },
+  "effectiveDate": "2020-07-03 10:10:00",
+  "ingestionMode": { "value": "incremental" },
+  "validationMode": { "value": "fail_fast" },
+  "createDatabase": true,
+  "database": "database_api",
+  "table": "json-schema",
+  "partitionBy": "",
+  "permissiveThresholdType": {"value" :"absolute"},
+  "permissiveThreshold": 10,
+  "apiInput":{
+    "endpoint": "People",
+    "parameters": "",
+    "pagination": {
+      "typ": {"value" :"offset"},
+      "top": "$top",
+      "skip": "$skip",
+      "topSize": 10
+    },
+    "dataIn": "value",
+    "headers": {
+      "content-type": "json"
+    }
+  },
+  "schemaDefinition": {"value": "json-schema"},
+  "schemaFile": "/source-api/dataset-api-full/dataset-api-fullsnapshot_schema.json",
+  "schemaJson": {
+    "type": "struct",
+    "fields": [
+      {
+        "name": "UserName",
+        "type": "string",
+        "nullable": true
+      },
+      {
+        "name": "Concurrency",
+        "type": "long",
+        "nullable": true
+      },
+      {
+        "name": "FirstName",
+        "type": "string",
+        "nullable": true
+      },
+      {
+        "name": "LastName",
+        "type": "string",
+        "nullable": true
+      },
+      {
+        "name": "Gender",
+        "type": "string",
+        "nullable": true
+      },
+      {
+        "name": "Emails",
+        "type": {
+          "type": "array",
+          "elementType": "string",
+          "containsNull": true
+        },
+        "nullable": true
+      },
+      {
+        "name": "AddressInfo",
+        "type": {
+          "type": "array",
+          "elementType": {
+            "type": "struct",
+            "fields": [
+              {
+                "name": "Address",
+                "type": "string",
+                "nullable": true
+              },
+              {
+                "name": "City",
+                "type": {
+                  "type": "struct",
+                  "fields": [
+                    {
+                      "name": "Country",
+                      "type": "string",
+                      "nullable": true
+                    },
+                    {
+                      "name": "Region",
+                      "type": "string",
+                      "nullable": true
+                    },
+                    {
+                      "name": "Name",
+                      "type": "string",
+                      "nullable": true
+                    }
+                  ]
+                },
+                "nullable": true
+              }
+            ]
+          },
+          "containsNull": true
+        },
+        "nullable": true
+      }
+    ]
+  }
+}

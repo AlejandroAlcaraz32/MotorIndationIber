@@ -1,0 +1,61 @@
+{
+  "name": "dataset-sqlserver-incremental-isTimestamp-alias",
+  "description": "dataset sqlserver incremental",
+  "sourceName": "source-sqlserver",
+  "typ": { "value": "table" },
+  "version": 1,
+  "enabled": true,
+  "classification": { "value": "public" },
+  "effectiveDate": "2020-07-03 10:10:00",
+  "ingestionMode": { "value": "incremental" },
+  "validationMode": { "value": "fail_fast" },
+  "createDatabase": true,
+  "database": "Production",
+  "table": "ProductCategoryI_isTimestamp_alias",
+  "partitionBy": "",
+  "permissiveThresholdType": {"value" :"absolute"},
+  "permissiveThreshold": 10,
+  "tableInput":{
+    "table": "ProductCategoryIncremental",
+    "schema": "Production"
+  },
+  "schemaDefinition": {"value": "json-columns"},
+  "schemaFile": "",
+  "schemaColumns": {
+    "columns": [
+      {
+        "name": "ProductCategoryID",
+        "typ": {"value":  "integer"},
+        "isPrimaryKey": true,
+        "isTimestamp": false,
+        "position": 1,
+        "sensitive": false
+      },
+      {
+        "name": "Name",
+        "typ": {"value":  "string"},
+        "isPrimaryKey": false,
+        "isTimestamp": false,
+        "position": 2,
+        "sensitive": false
+      },
+      {
+        "name": "rowguid",
+        "typ": {"value":  "string"},
+        "isPrimaryKey": false,
+        "isTimestamp": false,
+        "position": 3,
+        "sensitive": false
+      },
+      {
+        "name": "ModifiedDate",
+        "alias": "UpdateDate",
+        "typ": {"value":  "datetime"},
+        "isPrimaryKey": false,
+        "isTimestamp": true,
+        "position": 4,
+        "sensitive": false
+      }
+    ]
+  }
+}

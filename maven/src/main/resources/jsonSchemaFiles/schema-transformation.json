@@ -1,0 +1,594 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/object1646304969.json",
+  "title": "Root",
+  "type": "object",
+  "required": [
+    "name",
+    "description",
+    "typ"
+  ],
+  "properties": {
+    "name": {
+      "$id": "#root/name",
+      "title": "Name",
+      "type": "string",
+      "default": "",
+      "examples": [
+        "transform-testMLTrans3"
+      ],
+      "pattern": "^.*$"
+    },
+    "description": {
+      "$id": "#root/description",
+      "title": "Description",
+      "type": "string",
+      "default": "",
+      "examples": [
+        "Read table from silver"
+      ],
+      "pattern": "^.*$"
+    },
+    "typ": {
+      "$id": "#root/typ",
+      "title": "Typ",
+      "type": "object",
+      "required": [
+        "value"
+      ],
+      "properties": {
+        "value": {
+          "$id": "#root/typ/value",
+          "title": "Value",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "datalake"
+          ],
+          "pattern": "^.*$"
+        }
+      }
+    },
+    "sqlTransformation": {
+      "$id": "#root/sqlTransformation",
+      "title": "Sqltransformation",
+      "type": "object",
+      "required": [
+        "sourceTables",
+        "stages"
+      ],
+      "properties": {
+        "sourceTables": {
+          "$id": "#root/sqlTransformation/sourceTables",
+          "title": "Sourcetables",
+          "type": "array",
+          "default": [],
+          "items": {
+            "$id": "#root/sqlTransformation/sourceTables/items",
+            "title": "Items",
+            "type": "object",
+            "required": [
+              "sqlConnection",
+              "sqlSchema",
+              "sqlTable",
+              "sqlWriteMode",
+              "cleanAfter",
+              "dropAfter"
+            ],
+            "properties": {
+              "dlkClassification": {
+                "$id": "#root/sqlTransformation/sourceTables/items/dlkClassification",
+                "title": "Dlkclassification",
+                "type": "string",
+                "default": "",
+                "examples": [
+                  "public"
+                ],
+                "pattern": "^.*$"
+              },
+              "dlkDatabase": {
+                "$id": "#root/sqlTransformation/sourceTables/items/dlkDatabase",
+                "title": "Dlkdatabase",
+                "type": "string",
+                "default": "",
+                "examples": [
+                  "eas-sdb-gld-kpi-operaciones"
+                ],
+                "pattern": "^.*$"
+              },
+              "dlkTable": {
+                "$id": "#root/sqlTransformation/sourceTables/items/dlkTable",
+                "title": "Dlktable",
+                "type": "string",
+                "default": "",
+                "examples": [
+                  "demotransformacion"
+                ],
+                "pattern": "^.*$"
+              },
+              "sqlConnection": {
+                "$id": "#root/sqlTransformation/sourceTables/items/sqlConnection",
+                "title": "Sqlconnection",
+                "type": "string",
+                "default": "",
+                "examples": [
+                  "eas-sdb-gld-kpi-operaciones"
+                ],
+                "pattern": "^.*$"
+              },
+              "sqlSchema": {
+                "$id": "#root/sqlTransformation/sourceTables/items/sqlSchema",
+                "title": "Sqlschema",
+                "type": "string",
+                "default": "",
+                "examples": [
+                  "datamart"
+                ],
+                "pattern": "^.*$"
+              },
+              "sqlTable": {
+                "$id": "#root/sqlTransformation/sourceTables/items/sqlTable",
+                "title": "Sqltable",
+                "type": "string",
+                "default": "",
+                "examples": [
+                  "demotransformacion_sql"
+                ],
+                "pattern": "^.*$"
+              },
+              "sqlWriteMode": {
+                "$id": "#root/sqlTransformation/sourceTables/items/sqlWriteMode",
+                "title": "Sqlwritemode",
+                "type": "object",
+                "required": [
+                  "value"
+                ],
+                "properties": {
+                  "value": {
+                    "$id": "#root/sqlTransformation/sourceTables/items/sqlWriteMode/value",
+                    "title": "Value",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                      "overwrite"
+                    ],
+                    "pattern": "^.*$"
+                  }
+                }
+              },
+              "cleanAfter": {
+                "$id": "#root/sqlTransformation/sourceTables/items/cleanAfter",
+                "title": "Cleanafter",
+                "type": "boolean",
+                "examples": [
+                  false
+                ],
+                "default": true
+              },
+              "dropAfter": {
+                "$id": "#root/sqlTransformation/sourceTables/items/dropAfter",
+                "title": "Dropafter",
+                "type": "boolean",
+                "examples": [
+                  false
+                ],
+                "default": true
+              }
+            }
+          }
+        },
+        "stages": {
+          "$id": "#root/sqlTransformation/stages",
+          "title": "Stages",
+          "type": "array",
+          "default": []
+        }
+      }
+    },
+    "datalakeTransformation": {
+      "$id": "#root/datalakeTransformation",
+      "title": "Datalaketransformation",
+      "type": "object",
+      "required": [
+        "classification",
+        "database",
+        "table",
+        "mode",
+        "stages"
+      ],
+      "properties": {
+        "classification": {
+          "$id": "#root/datalakeTransformation/classification",
+          "title": "Classification",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "featureengine"
+          ],
+          "pattern": "^.*$"
+        },
+        "database": {
+          "$id": "#root/datalakeTransformation/database",
+          "title": "Database",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "data_output"
+          ],
+          "pattern": "^.*$"
+        },
+        "table": {
+          "$id": "#root/datalakeTransformation/table",
+          "title": "Table",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "test_2"
+          ],
+          "pattern": "^.*$"
+        },
+        "partition": {
+          "$id": "#root/datalakeTransformation/partition",
+          "title": "Partition",
+          "type": "string",
+          "default": "",
+          "examples": [
+            ""
+          ],
+          "pattern": "^.*$"
+        },
+        "mode": {
+          "$id": "#root/datalakeTransformation/mode",
+          "title": "Mode",
+          "type": "object",
+          "required": [
+            "value"
+          ],
+          "properties": {
+            "value": {
+              "$id": "#root/datalakeTransformation/mode/value",
+              "title": "Value",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "overwrite"
+              ],
+              "pattern": "^.*$"
+            }
+          }
+        },
+        "stages": {
+          "$id": "#root/datalakeTransformation/stages",
+          "title": "Stages",
+          "type": "array",
+          "default": [],
+          "items": {
+            "$id": "#root/datalakeTransformation/stages/items",
+            "title": "Items",
+            "type": "object",
+            "required": [
+              "name",
+              "description",
+              "typ"
+            ],
+            "properties": {
+              "name": {
+                "$id": "#root/datalakeTransformation/stages/items/name",
+                "title": "Name",
+                "type": "string",
+                "default": "",
+                "examples": [
+                  "stage table 1"
+                ],
+                "pattern": "^.*$"
+              },
+              "description": {
+                "$id": "#root/datalakeTransformation/stages/items/description",
+                "title": "Description",
+                "type": "string",
+                "default": "",
+                "examples": [
+                  "stage 1"
+                ],
+                "pattern": "^.*$"
+              },
+              "typ": {
+                "$id": "#root/datalakeTransformation/stages/items/typ",
+                "title": "Typ",
+                "type": "object",
+                "required": [
+                  "value"
+                ],
+                "properties": {
+                  "value": {
+                    "$id": "#root/datalakeTransformation/stages/items/typ/value",
+                    "title": "Value",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                      "table"
+                    ],
+                    "pattern": "^.*$"
+                  }
+                }
+              },
+              "stageTable": {
+                "$id": "#root/datalakeTransformation/stages/items/stageTable",
+                "title": "Stagetable",
+                "type": "object",
+                "required": [
+                  "name",
+                  "typ",
+                  "table"
+                ],
+                "properties": {
+                  "name": {
+                    "$id": "#root/datalakeTransformation/stages/items/stageTable/name",
+                    "title": "Name",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                      "data"
+                    ],
+                    "pattern": "^.*$"
+                  },
+                  "typ": {
+                    "$id": "#root/datalakeTransformation/stages/items/stageTable/typ",
+                    "title": "Typ",
+                    "type": "object",
+                    "required": [
+                      "value"
+                    ],
+                    "properties": {
+                      "value": {
+                        "$id": "#root/datalakeTransformation/stages/items/stageTable/typ/value",
+                        "title": "Value",
+                        "type": "string",
+                        "default": "",
+                        "examples": [
+                          "test"
+                        ],
+                        "pattern": "^.*$"
+                      }
+                    }
+                  },
+                  "database": {
+                    "$id": "#root/datalakeTransformation/stages/items/stageTable/database",
+                    "title": "Database",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                      "origin"
+                    ],
+                    "pattern": "^.*$"
+                  },
+                  "table": {
+                    "$id": "#root/datalakeTransformation/stages/items/stageTable/table",
+                    "title": "Table",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                      "data"
+                    ],
+                    "pattern": "^.*$"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "qualityRules": {
+          "$id": "#root/datalakeTransformation/qualityRules",
+          "title": "Qualityrules",
+          "type": "object",
+          "required": [
+          ],
+          "properties": {
+            "uniquenessRule": {
+              "$id": "#root/datalakeTransformation/qualityRules/uniquenessRule",
+              "title": "Uniquenessrule",
+              "type": "object",
+              "required": [
+                "rules"
+              ],
+              "properties": {
+                "rules": {
+                  "$id": "#root/datalakeTransformation/qualityRules/uniquenessRule/rules",
+                  "title": "Rules",
+                  "type": "array",
+                  "default": [],
+                  "items": {
+                    "$id": "#root/datalakeTransformation/qualityRules/uniquenessRule/rules/items",
+                    "title": "Items",
+                    "type": "object",
+                    "required": [
+                      "name",
+                      "columns"
+                    ],
+                    "properties": {
+                      "name": {
+                        "$id": "#root/datalakeTransformation/qualityRules/uniquenessRule/rules/items/name",
+                        "title": "Name",
+                        "type": "string",
+                        "default": "",
+                        "examples": [
+                          "uniquenessrule1"
+                        ],
+                        "pattern": "^.*$"
+                      },
+                      "columns": {
+                        "$id": "#root/datalakeTransformation/qualityRules/uniquenessRule/rules/items/columns",
+                        "title": "Columns",
+                        "type": "array",
+                        "default": [],
+                        "items": {
+                          "$id": "#root/datalakeTransformation/qualityRules/uniquenessRule/rules/items/columns/items",
+                          "title": "Items",
+                          "type": "string",
+                          "default": "",
+                          "examples": [
+                            "EnglishProductCategoryName"
+                          ],
+                          "pattern": "^.*$"
+                        }
+                      }
+                    }
+                  }
+
+                }
+              }
+            },
+            "notNullRule": {
+              "$id": "#root/datalakeTransformation/qualityRules/notNullRule",
+              "title": "Notnullrule",
+              "type": "array",
+              "default": [],
+              "items": {
+                "$id": "#root/datalakeTransformation/qualityRules/notNullRule/items",
+                "title": "Items",
+                "type": "string",
+                "default": "",
+                "examples": [
+                  "EnglishProductCategoryName"
+                ],
+                "pattern": "^.*$"
+              }
+            },
+            "integrityRule": {
+              "$id": "#root/datalakeTransformation/qualityRules/integrityRule",
+              "title": "Integrityrule",
+              "type": "object",
+              "required": [
+                "rules"
+              ],
+              "properties": {
+                "rules": {
+                  "$id": "#root/datalakeTransformation/qualityRules/integrityRule/rules",
+                  "title": "Rules",
+                  "type": "array",
+                  "default": [],
+                  "items": {
+                    "$id": "#root/datalakeTransformation/qualityRules/integrityRule/rules/items",
+                    "title": "Items",
+                    "type": "object",
+                    "required": [
+                      "name",
+                      "localColumns",
+                      "referencedTable",
+                      "referencedColumns"
+                    ],
+                    "properties": {
+                      "name": {
+                        "$id": "#root/datalakeTransformation/qualityRules/integrityRule/rules/items/name",
+                        "title": "Name",
+                        "type": "string",
+                        "default": "",
+                        "examples": [
+                          "Integrity1"
+                        ],
+                        "pattern": "^.*$"
+                      },
+                      "localColumns": {
+                        "$id": "#root/datalakeTransformation/qualityRules/integrityRule/rules/items/localColumns",
+                        "title": "Localcolumns",
+                        "type": "array",
+                        "default": [],
+                        "items": {
+                          "$id": "#root/datalakeTransformation/qualityRules/integrityRule/rules/items/localColumns/items",
+                          "title": "Items",
+                          "type": "string",
+                          "default": "",
+                          "examples": [
+                            "country"
+                          ],
+                          "pattern": "^.*$"
+                        }
+                      },
+                      "referencedTable": {
+                        "$id": "#root/datalakeTransformation/qualityRules/integrityRule/rules/items/referencedTable",
+                        "title": "Referencedtable",
+                        "type": "string",
+                        "default": "",
+                        "examples": [
+                          "database1.last_changes_worldcities"
+                        ],
+                        "pattern": "^.*$"
+                      },
+                      "referencedColumns": {
+                        "$id": "#root/datalakeTransformation/qualityRules/integrityRule/rules/items/referencedColumns",
+                        "title": "Referencedcolumns",
+                        "type": "array",
+                        "default": [],
+                        "items": {
+                          "$id": "#root/datalakeTransformation/qualityRules/integrityRule/rules/items/referencedColumns/items",
+                          "title": "Items",
+                          "type": "string",
+                          "default": "",
+                          "examples": [
+                            "country"
+                          ],
+                          "pattern": "^.*$"
+                        }
+                      }
+                    }
+                  }
+
+                }
+              }
+            },
+            "expressionRule": {
+              "$id": "#root/datalakeTransformation/qualityRules/expressionRule",
+              "title": "Expressionrule",
+              "type": "object",
+              "required": [
+                "rules"
+              ],
+              "properties": {
+                "rules": {
+                  "$id": "#root/datalakeTransformation/qualityRules/expressionRule/rules",
+                  "title": "Rules",
+                  "type": "array",
+                  "default": [],
+                  "items": {
+                    "$id": "#root/datalakeTransformation/qualityRules/expressionRule/rules/items",
+                    "title": "Items",
+                    "type": "object",
+                    "required": [
+                      "name",
+                      "expr"
+                    ],
+                    "properties": {
+                      "name": {
+                        "$id": "#root/datalakeTransformation/qualityRules/expressionRule/rules/items/name",
+                        "title": "Name",
+                        "type": "string",
+                        "default": "",
+                        "examples": [
+                          "exprRule1"
+                        ],
+                        "pattern": "^.*$"
+                      },
+                      "expr": {
+                        "$id": "#root/datalakeTransformation/qualityRules/expressionRule/rules/items/expr",
+                        "title": "Expr",
+                        "type": "string",
+                        "default": "",
+                        "examples": [
+                          "ProductCategoryKey > 1"
+                        ],
+                        "pattern": "^.*$"
+                      }
+                    }
+                  }
+
+                }
+              }
+            }
+
+          }
+        }
+      }
+    }
+  }
+}

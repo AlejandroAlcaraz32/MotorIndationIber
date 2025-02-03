@@ -1,0 +1,10 @@
+{
+  "name": "source-eventhub",
+  "description":"Source Event Hub Broker",
+  "typ": {"value":  "kafka"},
+  "kafkaConnection": {
+    "saslMechanism": "PLAIN",
+    "securityProtocol": "SASL_SSL",
+    "bootstrapServersKey": "iothub-ns-maiazwe1gl-13391681-2809bc0d08.servicebus.windows.net:9093"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "name": "dataset-sqlserver-fullsnapshot-partition1-fullsourcetest",
+  "description": "dataset sqlserver full snapshot partitioned by Category first query",
+  "sourceName": "source-sqlserver-full",
+  "typ": { "value": "table" },
+  "version": 1,
+  "enabled": true,
+  "classification": { "value": "public" },
+  "effectiveDate": "2020-07-03 10:10:00",
+  "ingestionMode": { "value": "full_snapshot" },
+  "validationMode": { "value": "fail_fast" },
+  "createDatabase": true,
+  "database": "Sales",
+  "table": "SalesOrderPerDayFull",
+  "partitionBy": "Category",
+  "permissiveThresholdType": {"value" :"absolute"},
+  "permissiveThreshold": 10,
+  "tableInput":{
+    "table": "SalesOrderPerDay",
+    "query": "SELECT t2.OrderDay,t4.Name Category,cast(SUM(t1.LineTotal) as decimal(38,6)) as SumTotal FROM [Sales].[V_SalesOrderDetail] t1 INNER JOIN [Sales].[SalesOrderDay] t2 ON t1.SalesOrderID=t2.SalesOrderID INNER JOIN Production.Product t3 ON t1.ProductID=t3.ProductID INNER JOIN Production.ProductSubcategory t4 ON t4.ProductSubcategoryID=t3.ProductSubcategoryID where OrderDay = '2011-05-31' GROUP BY t2.OrderDay,t4.Name"
+  },
+  "schemaDefinition": {"value": "json-columns"},
+  "schemaFile": "",
+  "schemaColumns": {
+    "columns": [
+      {
+        "name": "OrderDay",
+        "typ": {"value":  "date"},
+        "isPrimaryKey": false,
+        "isTimestamp": false,
+        "position": 1,
+        "sensitive": false
+      },
+      {
+        "name": "Category",
+        "typ": {"value":  "string"},
+        "isPrimaryKey": false,
+        "isTimestamp": false,
+        "position": 2,
+        "sensitive": false
+      },
+      {
+        "name": "SumTotal",
+        "typ": {"value":  "decimal"},
+        "isPrimaryKey": false,
+        "isTimestamp": false,
+        "position": 3,
+        "sensitive": false,
+        "decimalParameters": {
+          "precision": 38,
+          "scale": 6
+        }
+      }
+    ]
+  }
+}

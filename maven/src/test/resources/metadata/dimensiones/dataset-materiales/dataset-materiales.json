@@ -1,0 +1,325 @@
+{
+	"name": "materiales",
+	"description": "materiales",
+	"sourceName": "dimensiones",
+	"typ": {
+		"value": "file"
+	},
+	"version": 1,
+	"enabled": true,
+	"classification": {
+		"value": "public"
+	},
+	"effectiveDate": "2020-07-03 10:10:00",
+	"ingestionMode": {
+		"value": "full_snapshot"
+	},
+	"validationMode": {
+		"value": "fail_fast"
+	},
+	"createDatabase": true,
+	"database": "slv_sap",
+	"table": "materiales",
+	"partitionBy": "",
+	"permissiveThresholdType": {
+		"value": "percentage"
+	},
+	"permissiveThreshold": 20,
+	"fileInput": {
+		"format": {
+			"value": "csv"
+		},
+		"filePattern": "Materiales.csv",
+		"csv": {
+			"charset": "UTF-8",
+			"header": {
+				"value": "ignore_header"
+			},
+			"delimiter": ";",
+			"quote": ""
+		}
+	},
+	"schemaDefinition": {
+		"value": "json-columns"
+	},
+	"schemaFile": "",
+	"schemaColumns": {
+		"columns": [
+			{
+				"name": "Material",
+				"typ": {
+					"value": "string"
+				},
+				"description": "material",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 1,
+				"sensitive": false
+			},
+			{
+				"name": "Descripcion",
+				"typ": {
+					"value": "string"
+				},
+				"description": "Descripcion",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 2,
+				"sensitive": false
+			},
+			{
+				"name": "TipoMaterial",
+				"typ": {
+					"value": "string"
+				},
+				"description": "TipoMaterial",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 3,
+				"sensitive": false
+			},
+			{
+				"name": "NombreTipoMaterial",
+				"typ": {
+					"value": "string"
+				},
+				"description": "NombreTipoMaterial",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 4,
+				"sensitive": false
+			},
+			{
+				"name": "GrupoArticulos",
+				"typ": {
+					"value": "string"
+				},
+				"description": "GrupoArticulos",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 5,
+				"sensitive": false
+			},
+			{
+				"name": "NombreGrupoArticulos",
+				"typ": {
+					"value": "string"
+				},
+				"description": "NombreGrupoArticulos",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 6,
+				"sensitive": false
+			},
+			{
+				"name": "Jerarquia",
+				"typ": {
+					"value": "string"
+				},
+				"description": "jerarquia",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 7,
+				"sensitive": false
+			},
+			{
+				"name": "Denominacion",
+				"typ": {
+					"value": "string"
+				},
+				"description": "denominacion",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 8,
+				"sensitive": false
+			},
+			{
+				"name": "UEN1",
+				"typ": {
+					"value": "integer"
+				},
+				"description": "UEN1",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 9,
+				"sensitive": false
+			},
+			{
+				"name": "DescripcionUen1",
+				"typ": {
+					"value": "string"
+				},
+				"description": "DescripcionUen1",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 10,
+				"sensitive": false
+			},
+			{
+				"name": "UEN2",
+				"typ": {
+					"value": "integer"
+				},
+				"description": "UEN2",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 11,
+				"sensitive": false
+			},
+			{
+				"name": "DescripcionUen2",
+				"typ": {
+					"value": "string"
+				},
+				"description": "DescripcionUen2",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 12,
+				"sensitive": false
+			},
+			{
+				"name": "Proveedor",
+				"typ": {
+					"value": "string"
+				},
+				"description": "proveedor",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 13,
+				"sensitive": false
+			},
+			{
+				"name": "Centro",
+				"typ": {
+					"value": "string"
+				},
+				"description": "centro",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 14,
+				"sensitive": false
+			},
+			{
+				"name": "CeBe",
+				"typ": {
+					"value": "string"
+				},
+				"description": "centro_beneficio",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 15,
+				"sensitive": false
+			},
+			{
+				"name": "NombreCeBe",
+				"typ": {
+					"value": "string"
+				},
+				"description": "NombreCeBe",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 16,
+				"sensitive": false
+			},
+			{
+				"name": "Planificador",
+				"typ": {
+					"value": "string"
+				},
+				"description": "planificador",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 17,
+				"sensitive": false
+			},
+			{
+				"name": "Nombre_planificador",
+				"typ": {
+					"value": "string"
+				},
+				"description": "nombre_planificador",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 18,
+				"sensitive": false
+			},
+			{
+				"name": "UAT",
+				"typ": {
+					"value": "string"
+				},
+				"description": "UAT",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 19,
+				"sensitive": false
+			},
+			{
+				"name": "NombreUAT",
+				"typ": {
+					"value": "string"
+				},
+				"description": "NombreUAT",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 20,
+				"sensitive": false
+			},
+			{
+				"name": "GRUPO_PLAN",
+				"typ": {
+					"value": "string"
+				},
+				"description": "grupo_plan",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 21,
+				"sensitive": false
+			},
+			{
+				"name": "ZZPROYECTO",
+				"typ": {
+					"value": "string"
+				},
+				"description": "ZZPROYECTO",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 22,
+				"sensitive": false
+			},
+			{
+				"name": "ZZVEHIC1",
+				"typ": {
+					"value": "string"
+				},
+				"description": "ZZVEHIC1",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 23,
+				"sensitive": false
+			},
+			{
+				"name": "CategoriaVal",
+				"typ": {
+					"value": "string"
+				},
+				"description": "CategoriaVal",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 24,
+				"sensitive": false
+			},
+			{
+				"name": "DescripCategoriaVal",
+				"typ": {
+					"value": "string"
+				},
+				"description": "DescripCategoriaVal",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 25,
+				"sensitive": false
+			}
+		]
+	}
+}

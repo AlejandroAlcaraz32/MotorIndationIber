@@ -1,0 +1,5 @@
+{
+  "name": "applications",
+  "description":"Aplicaciones desplegadas",
+  "typ": {"value":  "directory"}
+}

@@ -1,0 +1,68 @@
+{
+  "name": "last-changes-worldcities-json",
+  "description": "Dataset Last Changes World Cities",
+  "sourceName": "source-json-5",
+  "typ": { "value": "file" },
+  "version": 1,
+  "enabled": true,
+  "classification": { "value": "public" },
+  "effectiveDate": "2020-07-03 10:10:00",
+  "ingestionMode": { "value": "last_changes" },
+  "validationMode": { "value": "fail_fast" },
+  "createDatabase": true,
+  "database": "database5",
+  "table": "last_changes_worldcities_json",
+  "partitionBy": "yyyy/mm/dd",
+  "permissiveThresholdType": {"value" :"absolute"},
+  "permissiveThreshold": 10,
+  "fileInput":{
+    "format": { "value": "json" },
+    "json": {
+      "encoding": "UTF-8",
+      "multiline": false,
+      "allowUnquotedFieldNames": false,
+      "allowNumericLeadingZeros": false
+    },
+    "filePattern": "<yyyy><mm><dd>_last_changes_worldCities.json"
+  },
+  "schemaDefinition": {"value": "json-schema"},
+  "schemaJson": {
+    "type": "struct",
+    "fields": [
+      {
+        "name": "name",
+        "type": "string",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "country",
+        "type": "string",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "subcountry",
+        "type": "string",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "geonameid",
+        "type": "long",
+        "nullable": true,
+        "metadata": {
+          "isPrimaryKey": true
+        }
+      },
+      {
+        "name": "timeStamp",
+        "type": "timestamp",
+        "nullable": true,
+        "metadata": {
+          "isTimestamp": true
+        }
+      }
+    ]
+  }
+}

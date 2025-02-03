@@ -1,0 +1,10 @@
+{
+  "name": "lambdaActivity",
+  "description":"activity for test lambda",
+  "transformations": [
+    "lambda-dlk",
+    "lambda2-dlk",
+    "lambda3-dlk"
+  ],
+  "parameters": []
+}

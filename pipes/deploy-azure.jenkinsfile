@@ -1,0 +1,77 @@
+// Libreria a ejecutar
+@Library('AccionaFwDevOps2@LTS-2.0') _
+
+pipeline 
+{
+	// Pod a levantar para el proceso
+ 	agent {
+    	kubernetes {
+			defaultContainer 'jnlp'
+			yaml libraryResource('podTemplates/deployment/ubuntu_focal_dind.yaml')
+		}
+  	}
+  
+  	options { 
+  	
+  		skipDefaultCheckout()
+  		disableConcurrentBuilds()
+  	 }
+  	
+  	parameters {
+  	    // Parametro que indica si se tiene que invocar a la fase de construccion. 
+        booleanParam(name: 'BUILD', defaultValue: 'true', description: 'false-> No compila, true-> Compila' )
+		// Parametro que indica si se tiene q realizar la replicacion a un repo de GitHub
+	   	booleanParam(name: 'TO_GITHUB_REPO_REPLICATION', defaultValue: 'false', description: 'false-> No sincroniza, true-> Sincroniza' )
+	   	// Parametro que indica si el JOB no tiene que desplegar.
+	   	booleanParam(name: 'OMIT_DEPLOYMENT', defaultValue: 'false', description: 'false-> se ejecutan todas las fases, true-> solo se tienen en cuenta las fases relativas a compilacion' )
+		// Parametro que indica si el JOB va a realizar etapa de Test Automatizados de Calidad
+	   	booleanParam(name: 'OMIT_LIVE_APP_TESTS', defaultValue: 'true', description: 'true-> no se ejecutan LiveAppTests, false-> se ejecutan LiveAppTests' )
+		// Parametro que indica si el JOB va a realizar etapas de construcción de imágenes de Docker
+		booleanParam(name: 'BUILD_DOCKER', defaultValue: 'false', description: 'false-> No ejecuta etapa de Docker, true-> Ejecuta compilacion de Docker' )
+		// Parametro que indica si modo de ejecucion del JOB
+		string(name: 'VERSION', defaultValue: '_', description: 'Version a desplegar' )
+		// Parametro que indica el JOB director que ha invocado a este JOB
+		string(name: 'JOB_DIRECTOR', defaultValue: 'root', description: 'Version a desplegar' )
+    }
+  	environment 
+	{
+		// 	VARIABLES A PERSONALIZAR
+		//	GIT_URL						: URL al repositorio en donde se localiza el proyecto y existe el directorio de pipes  
+		//	PRJ							: nombre del proyecto y carpeta donde se aloja los componentes dentro del REPO deploy de artifactory. En el caso de azure proyecto/repositorio para github unicamente repositorio
+		//	ARTIFACTORY_REPO			: repositorio dentro de artifactory donde se aloja el componente a desplegar
+		//  ARTIFACTORY_REGISTRY        : nombre del registry de docker en artifactory
+		//	AZURE_PROJECT 				: nombre del proyecto en Azure DevOps, llenar si se va a usar el parametro BUILD_AZURE
+		// 	AZURE_BUILDID				: ID del job de BUILD a invocar en Azure DevOps
+		// 	CODE_REVIEW                 : parametro para ejecutar la tareas de scaneo de codigo variables (true - false)
+		// 	ENABLE_INCIDENCIA_SN		: parametro para notificar incidencias en servicenow variables (true - false)
+		// 	ENABLE_JIRA                 : parametro para notificar a Jira de proceso de CI/CD del proyecto variables (true - false)
+		GIT_URL="https://github.com/ITACCIONA/ene_REPIN__metadata_indation.git"
+		PRJ="ene_REPIN/metadata_indation"
+		ARTIFACTORY_REPO="energia-deploy"
+		// ARTIFACTORY_REGISTRY=""
+		// AZURE_PROJECT="" 
+		// AZURE_BUILDID=""		
+		CODE_REVIEW=false
+		ENABLE_INCIDENCIA_SN=false
+		ENABLE_JIRA=false 
+	}
+    
+    stages {
+		stage('************ START JOB ************') {
+			steps {
+				script {
+					new stages.DevOpsFwEntrance(this).exec()
+				}
+			}
+   		}		
+	}
+	
+	
+	post {
+        	always {
+	 		script {
+				new stages.Post(this).exec()
+			}
+		}
+	}
+}

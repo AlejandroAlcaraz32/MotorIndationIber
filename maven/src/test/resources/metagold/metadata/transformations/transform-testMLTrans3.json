@@ -1,0 +1,141 @@
+{
+  "name": "transform-testMLTrans3",
+  "description":"Read table from silver",
+  "typ": {"value":  "datalake"},
+  "datalakeTransformation":
+  {
+    "classification": "featureengine",
+    "database": "data_output",
+    "table": "test_2",
+    "partition": "",
+    "mode": {"value":  "overwrite"},
+    "stages": [
+      {
+        "name": "stage table 1",
+        "description": "stage 1",
+        "typ": {"value":  "table"},
+        "stageTable": {
+          "name": "data",
+          "typ": {"value":  "test"},
+          "database": "origin",
+          "table": "data"
+        }
+      },
+      {
+        "name": "stage 2 bucktizer",
+        "description": "stage 2",
+        "typ": {"value":  "bucketizer"},
+        "stageBucketizer": {
+          "name": "bucket",
+          "description": "Product Description",
+          "typ": {"value":  "single"},
+          "splits": [-1000, -500, 0, 500, 1000 ,2000],
+          "inputCol": "int",
+          "outputCol": "int_buckt"
+        }
+      },
+      {
+        "name": "stage 3 binarizer",
+        "description": "stage 3",
+        "typ": {"value":  "binarizer"},
+        "stageBinarizer": {
+          "name": "bin",
+          "description": "Product Description",
+          "typ": {"value":  "list"},
+          "thresholds": [0.1],
+          "inputCols": ["double"],
+          "outputCols": ["double_bin"]
+        }
+      },
+      {
+        "name": "stage 4 imputer",
+        "description": "stage 4",
+        "typ": {"value":  "imputer"},
+        "stageImputer": {
+          "name": "imput",
+          "description": "Product Description",
+          "typ": {"value":  "list"},
+          "strategy": {"value" :"median"},
+          "inputCols": ["int", "double"],
+          "outputCols": ["int_im","double_im"]
+        }
+      },
+      {
+        "name": "stage 5 Variation",
+        "description": "stage 5",
+        "typ": {"value":  "variation"},
+        "stageVariation": {
+          "name": "var",
+          "description": "Time variation",
+          "percentage": false,
+          "timeLag": 1,
+          "timeOrderCol": "date",
+          "inputCol": "int",
+          "outputCol": "int_lag"
+        }
+      },
+      {
+        "name": "stage 6 Variation",
+        "description": "stage 6",
+        "typ": {"value":  "variation"},
+        "stageVariation": {
+          "name": "var",
+          "description": "Time variation",
+          "percentage": true,
+          "timeLag": 1,
+          "timeOrderCol": "date",
+          "inputCol": "int",
+          "outputCol": "int_lag_perc"
+        }
+      },
+      {
+        "name": "stage select",
+        "description": "stage 7",
+        "typ": {"value":  "select"},
+        "stageSelect": [
+          {
+            "columnName": "int",
+            "columnDescription": "int",
+            "columnAlias": "int"
+          },
+          {
+            "columnName": "int_buckt",
+            "columnDescription": "int_buckt",
+            "columnAlias": "int_buckt"
+          },
+          {
+            "columnName": "double_bin",
+            "columnDescription": "double_bin",
+            "columnAlias": "double_bin"
+          },
+          {
+            "columnName": "int_im",
+            "columnDescription": "int_im",
+            "columnAlias": "int_im"
+          },
+          {
+            "columnName": "int_lag",
+            "columnDescription": "int_lag",
+            "columnAlias": "int_lag"
+          },
+          {
+            "columnName": "int_lag_perc",
+            "columnDescription": "int_lag_perc",
+            "columnAlias": "int_lag_perc"
+          },
+          {
+            "columnName": "double",
+            "columnDescription": "double",
+            "columnAlias": "double"
+          },
+          {
+            "columnName": "double_im",
+            "columnDescription": "double_im",
+            "columnAlias": "double_im"
+          }
+        ]
+      }
+    ]
+  }
+}
+

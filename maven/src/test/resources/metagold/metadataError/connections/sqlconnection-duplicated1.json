@@ -1,0 +1,8 @@
+{
+  "name": "duplicado",
+  "description":null,
+  "typ": {"value":  "jdbc"},
+  "host": "localhost",
+  "port": "1433",
+  "database": "metagoldTest"
+}

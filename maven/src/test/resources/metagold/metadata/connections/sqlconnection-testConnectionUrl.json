@@ -1,0 +1,8 @@
+{
+  "name": "testConnectionUrl",
+  "description":"testConnectionUrl",
+  "typ": {"value":  "jdbc"},
+  "jdbcUrlKey": "jdbc:h2:~/metagoldTest;MODE=MSSQLServer;DB_CLOSE_ON_EXIT=FALSE;DATABASE_TO_UPPER=FALSE;",
+  "userKey": "userKey",
+  "passwordKey": "passwordKey"
+}

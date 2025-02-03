@@ -1,0 +1,39 @@
+{
+    "namespace": "com.minsait.indation.tests.avro",
+    "type": "record",
+    "name": "ComplexPayloadAvro",
+    "fields": [
+        {
+            "name": "eventTime",
+            "type": "long",
+            "default": ""
+        },
+        {
+            "name": "stringList",
+            "type": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                }
+            }
+        },
+        {
+            "name": "strPayload",
+            "type": "string",
+            "default": ""
+        },
+        {
+            "name": "innerPayLoad",
+            "type": {
+                "name": "InnerPayLoadAvro",
+                "type": "record",
+                "fields": [
+                    {
+                        "name": "sequenceNumber",
+                        "type": "long"
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "testMLActivity4",
+  "type": "databricks",
+  "description":"activity for testing",
+  "trigger": "EveryDayAt09AM",
+  "transformations": [
+    "transform-testMLTrans5"
+  ],
+  "parameters": [
+    {
+      "shortName": "paramY",
+      "longName": "paramYear",
+      "description": "Param Year",
+      "value": 2020
+    },
+    {
+      "shortName": "paramM",
+      "longName": "paramMonth",
+      "description": "Param Month",
+      "value": 3
+    }
+  ]
+}

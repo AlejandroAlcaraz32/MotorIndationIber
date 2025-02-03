@@ -1,0 +1,12 @@
+name,country,subcountry,geonameid,timeStamp
+Ciudad Real,Spain,,1,2020-01-01 01:00:00
+Ciudad Real,Spain,,2,2020-01-01 01:00:00
+Cáceres,Spain,Extremadura,3,2020-01-01 01:00:00
+Alicante,Spain,Valencia,4,2020-01-01 01:00:00
+Madrid,Spain,Madrid,5,2020-01-01 01:00:00
+Getafe,Spain,Madrid,6,2020-01-01 01:00:00
+Barcelona,Spain,Cataluña,7,2020-01-01 01:00:00
+Bilbao,Spain,Vizcaya,8,2020-01-01 01:00:00
+Paris,France,City,9,2020-01-01 01:00:00
+Las Palmas,Spain,Canarias,wronggeoname,2020-01-01 01:00:00
+Tenerife,Spain,Canarias

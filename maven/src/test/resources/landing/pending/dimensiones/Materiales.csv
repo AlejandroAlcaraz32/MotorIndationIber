@@ -1,0 +1,9 @@
+Material;Descripcion;TipoMaterial;NombreTipoMaterial;GrupoArticulos;NombreGrupoArticulos;Jerarquia;Denominacion;UEN1;DescripcionUen1;UEN2;DescripcionUen2;Proveedor;Centro;CeBe;NombreCeBe;Planificador;NombrePlanificador;UAT;NombreUAT;GRUPO_PLAN;ZZPROYECTO;ZZVEHIC1;CategoriaVal;DescripCategoriaVal
+M03930;CLIP MONOMATERIAL + EPDM SEAL;ZROH;_Maier_Mat. Prima;ROH004;Mat.Prima: Incorpora;;;;;;;;ES00;;;SA;Sin Asignar;;;;;;;
+M00688;ANILLA SONATE 14";ZROH;_Maier_Mat. Prima;ROH004;Mat.Prima: Incorpora;;;;;;;;ES00;;;SA;Sin Asignar;;;;;;;
+M03849;EPDM EE1010 1460X8X8 160B;ZROH;_Maier_Mat. Prima;ROH004;Mat.Prima: Incorpora;;;;;;;;ES00;;;SA;Sin Asignar;;;;;;;
+M04160;"412B HYBRID EMBLEM (RR) "S" TAPE;ZROH;_Maier_Mat. Prima;ROH004;Mat.Prima: Incorpora;;;;;;;;ES00;;;SA;Sin Asignar;;;;;;;
+7173S0570;Console Enjo Poignee Mantien;ZPRF;_Maier_Prod. Terminado;PF0001;Prod. Terminado;;;80;INTERIOR DECORATED PARTS;804;Console Trim;200002;ES00;60000;Filiales;SA;Sin Asignar;;;;A472;HHA;;
+7227A0010;"S" HYBRID BACK DOOR;ZPRS;_Maier_Prod. Semielaborad;PS0001;Prod. Semielaborado;;;60;OTHER EXTERIOR;699;Other Exterior;;ES00;10300;CR03;E07;AZPIKOTRATAZIOKO L;UATE7;UATE7 Azpikotratazio;;PRG000097;402B;;
+7225O001R;"EMBLEM SYMBOL, YARIS 402B";ZPRS;_Maier_Prod. Semielaborad;PS0001;Prod. Semielaborado;;;10;FRONT MODULE;107;Rear Emblem;;ES00;10300;CR03;E03;CR03 KROMATUKO LAN;UATE3;UATE3 CR03 Kromatuko;;9999;;;
+6821I0010;"Stoßleiste Mitte;ZPRS;_Maier_Prod. Semielaborad;PS0001;Prod. Semielaborado;;;10;FRONT MODULE;102;Front Bumper Moulding;;ES00;10200;CR02;E08;500T INJEKZIOA LAN;UATE8;UATE8 CR02 Injekzioa;;9999;;;

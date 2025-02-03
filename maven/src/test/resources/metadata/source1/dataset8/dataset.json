@@ -1,0 +1,36 @@
+{
+  "name": "dataset8",
+  "description": "Dataset 8",
+  "sourceName": "source1",
+  "typ": { "value": "file" },
+  "version": 1,
+  "enabled": true,
+  "classification": { "value": "public" },
+  "effectiveDate": "2020-07-03 10:10:00",
+  "ingestionMode": { "value": "full_snapshot" },
+  "validationMode": { "value": "fail_fast" },
+  "createDatabase": true,
+  "database": "database2",
+  "table": "table2",
+  "partitionBy": "yyyy/mm/dd",
+  "permissiveThresholdType": {"value" :"absolute"},
+  "permissiveThreshold": 10,
+  "fileInput":{
+    "format": { "value": "parquet" },
+    "filePattern": "<yyyy><mm><dd>_corrupt.snappy.parquet"
+  },
+  "schemaDefinition": {"value": "json-columns"},
+  "schemaFile": "",
+  "schemaColumns": {
+    "columns": [
+      {
+        "name": "col1",
+        "typ": {"value":  "string"},
+        "isPrimaryKey": false,
+        "isTimestamp": false,
+        "position": 1,
+        "sensitive": false
+      }
+    ]
+  }
+}

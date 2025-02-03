@@ -1,0 +1,21 @@
+{
+  "name": "dataset3",
+  "description": "Dataset 3",
+  "sourceName": "source1",
+  "typ": { "value": "file" },
+  "version": 1,
+  "enabled": false,
+  "ingestionMode": { "value": "last_changes" },
+  "validationMode": { "value": "permissive" },
+  "createDatabase": false,
+  "database": "database2",
+  "table": "table2",
+  "partitionBy": "yyyy/mm/dd",
+  "permissiveThresholdType":  {"value" :"absolute"},
+  "permissiveThreshold": 10,
+  "fileInput":{
+    "format": { "value": "avro" },
+    "filePattern": "<yyyy><mm><dd>_dataset3.avro"
+  },
+  "schemaDefinition": {"value": "avro-schema"}
+}

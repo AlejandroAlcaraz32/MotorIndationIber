@@ -1,0 +1,61 @@
+metadata:
+  storageAccountName: "stdemoindationdlk"
+  basePathIngestion: "abfss://metadata@stdemoindationdlk.dfs.core.windows.net/ingestion/"
+  basePathTransform: "abfss://metadata@stdemoindationdlk.dfs.core.windows.net/transform/"
+  container: "metadata"
+databricks:
+  secrets:
+    scope: "scopenoexiste"
+landing:
+  storageAccountName: "stdemoindationdlk"
+  basePath:  "abfss://landing@stdemoindationdlk.dfs.core.windows.net/"
+  container: "landing"
+  landingPath: "landing"
+  errorPath: "error"
+  archivePath: "archive"
+  pendingDirectory: "pending"
+  unknownDirectory: "unknown"
+  invalidDirectory: "invalid"
+  corruptedDirectory: "corrupted"
+  schemaMismatchDirectory: "schema-mismatch"
+  streamingDirectory: "streaming"
+datalake:
+  storageAccountName: "stdemoindationdlk"
+  basePath: "abfss://datalake@stdemoindationdlk.dfs.core.windows.net/"
+  container: "datalake"
+  outputType:
+    value: "delta"
+  bronzePath: "bronze"
+  silverPath: "silver"
+  goldPath: "gold"
+  versionsPath: "versions"
+  dataPath: "data"
+  QAerrorPath: "qa/error"
+security:
+  identity:
+    servicePrincipalAppIdKey: "dba"
+    servicePrincipalTenantIdKey: "tenantKey"
+    servicePrincipalPasswordKey: "Indra2014"
+  encryption:
+    encryptionType:
+      value: "pseudonymization"
+    masterKey: "xxxxxxxxxxxxxxxx"
+    encryptRawFile: true
+    hashSalt: "yyyyyyyyyyyy"
+    encryptionAlgorithm:
+      algorithm:
+        value: "AES"
+      mode:
+        value: "CTR"
+      padding: "NoPadding"
+environment:
+  value: "local"
+tmpDirectory: "tmp/"
+goldStatistics:
+  statisticsSubPath: "/gold/private/aplicaciones/transform"
+  statisticsDatabase: "aplicaciones"
+  statisticsTable: "transform"
+silverStatistics:
+  statisticsSubPath: "/silver/private/aplicaciones/ingestion"
+  statisticsDatabase: "aplicaciones"
+  statisticsTable: "ingestion"

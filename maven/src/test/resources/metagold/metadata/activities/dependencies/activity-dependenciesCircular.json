@@ -1,0 +1,29 @@
+{
+  "name": "dependenciesCircular",
+  "description":"activity for testing dependencies",
+  "activityType": {"value":  "parallel"},
+  "parallelTransformations": [
+    {
+      "name": "one-dlk",
+      "dependencies": ["two-dlk"]
+    },
+    {
+      "name": "two-dlk",
+      "dependencies": ["three-dlk","four-dlk"]
+    },
+    {
+      "name": "three-dlk",
+      "dependencies": []
+    },
+    {
+      "name": "four-dlk",
+      "dependencies": ["five-dlk"]
+    },
+    {
+      "name": "five-dlk",
+      "dependencies": ["one-dlk"]
+    }
+  ],
+  "parameters": [
+  ]
+}

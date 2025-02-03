@@ -1,0 +1,31 @@
+metadata:
+  storageAccountName: "maiazwe1desdlk"
+  basePath: "abfss://metadata@maiazwe1desdlk.dfs.core.windows.net/maier/ingestion/"
+  container: "metadata"
+databricks:
+  secrets:
+    scope: "maiazwe1keydes1"
+landing:
+  storageAccountName: "maiazwe1deslnd"
+  basePath:  "abfss://landing@maiazwe1deslnd.dfs.core.windows.net/maier/"
+  container: "landing/maier"
+  pendingDirectory: "pending"
+  unknownDirectory: "unknown"
+  invalidDirectory: "invalid"
+  corruptedDirectory: "corrupted"
+  schemaMismatchDirectory: "schema-mismatch"
+  streamingDirectory: "streaming"
+datalake:
+  storageAccountName: "maiazwe1desdlk"
+  basePath: "abfss://datalake@maiazwe1desdlk.dfs.core.windows.net/maier/"
+  container: "datalake"
+  outputType:
+    value: "delta"
+security:
+  identity:
+    servicePrincipalAppIdKey:    "SPNClientId"
+    servicePrincipalTenantIdKey: "SPNTenant"
+    servicePrincipalPasswordKey: "SPNSecret"
+environment:
+  value: "databricks"
+tmpDirectory: "dbfs:/tmp/ingestion/"

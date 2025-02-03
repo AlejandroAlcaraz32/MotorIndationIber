@@ -1,0 +1,63 @@
+{
+  "name": "transform-testMLTrans4",
+  "description":"Read table from silver",
+  "typ": {"value":  "datalake"},
+  "datalakeTransformation":
+  {
+    "classification": "featureengine",
+    "database": "data_output",
+    "table": "test_3",
+    "partition": "",
+    "mode": {"value":  "overwrite"},
+    "stages": [
+      {
+        "name": "stage table 1",
+        "description": "stage 1",
+        "typ": {"value":  "table"},
+        "stageTable": {
+          "name": "data",
+          "typ": {"value":  "test"},
+          "database": "origin",
+          "table": "data"
+        }
+      },
+      {
+        "name": "stage 3 one",
+        "description": "stage 3",
+        "typ": {"value":  "oneHotEncoder"},
+        "stageOneHotEncoder": {
+          "name": "one",
+          "description": "Product Description",
+          "typ": {"value":  "list"},
+          "inputCols": ["int"],
+          "outputCols": ["int_one"],
+          "historicalTable":  {
+            "name": "data_historica",
+            "typ": {"value":  "test"},
+            "database": "origin",
+            "table": "data_historica"
+          }
+        }
+      },
+      {
+        "name": "stage 4 imputer",
+        "description": "stage 4",
+        "typ": {"value":  "imputer"},
+        "stageImputer": {
+          "name": "imput",
+          "description": "Product Description",
+          "strategy": {"value" :"median"},
+          "typ": {"value":  "single"},
+          "inputCol": "int",
+          "outputCol": "int_im",
+          "historicalTable":  {
+            "name": "data_historica",
+            "typ": {"value":  "test"},
+            "database": "origin",
+            "table": "data_historica"
+          }
+        }
+      }
+    ]
+  }
+}

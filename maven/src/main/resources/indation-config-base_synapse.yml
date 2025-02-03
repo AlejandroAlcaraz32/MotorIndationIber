@@ -1,0 +1,71 @@
+metadata:
+  storageAccountName: "${METADATA_STORAGE_ACCOUNT}"
+  basePathIngestion: "abfss://${metadatacontainer}@${METADATA_STORAGE_ACCOUNT}.dfs.core.windows.net/${ORGANIZATION}/ingestion/"
+  basePathTransform: "abfss://${metadatacontainer}@${METADATA_STORAGE_ACCOUNT}.dfs.core.windows.net/${ORGANIZATION}/transform/"
+  container: "${metadatacontainer}"
+synapse:
+  secrets:
+    keyVault: "${SYNAPSE_KEYVAULT}"
+    linkedService: "${SYNAPSE_KEYVAULT}"
+landing:
+  storageAccountName: "${LANDING_STORAGE_ACCOUNT}"
+  basePath:  "abfss://${landingcontainer}@${LANDING_STORAGE_ACCOUNT}.dfs.core.windows.net/${ORGANIZATION}/"
+  container: "${landingcontainer}"
+  landingPath: "landing"
+  errorPath: "error"
+  archivePath: "archive"
+  pendingDirectory: "pending"
+  unknownDirectory: "unknown"
+  invalidDirectory: "invalid"
+  corruptedDirectory: "corrupted"
+  schemaMismatchDirectory: "schema-mismatch"
+  streamingDirectory: "streaming"
+datalake:
+  storageAccountName: "${DATALAKE_STORAGE_ACCOUNT}"
+  basePath: "abfss://${datalakecontainer}@${LANDING_STORAGE_ACCOUNT}.dfs.core.windows.net/${ORGANIZATION}/"
+  container: "${datalakecontainer}"
+  outputType:
+    value: "delta"
+  bronzePath: "bronze"
+  silverPath: "silver"
+  goldPath: "gold"
+  versionsPath: "versions"
+  dataPath: "data"
+  QAerrorPath: "qa/error"
+security:
+  identity:
+    servicePrincipalAppIdKey: "${SPN_APP_ID_KEY}"
+    servicePrincipalTenantIdKey: "${SPN_TENANT_ID_KEY}"
+    servicePrincipalPasswordKey: "${SPN_PASSWORD_KEY}"
+  encryption:
+    encryptionType:
+      value: "pseudonymization"
+    masterKey: "${ENCRYPTION_MASTER_KEY}"
+    encryptRawFile: true
+    hashSalt: "${ENCRYPTION_HASH_SALT}"
+    encryptionAlgorithm:
+      algorithm:
+        value: "AES"
+      mode:
+        value: "CTR"
+      padding: "NoPadding"
+environment:
+  value: "local"
+tmpDirectory: "tmp/"
+silverStatistics:
+  statisticsSubPath: "silver/private/aplicaciones/ingestion"
+  statisticsDatabase: "aplicaciones"
+  statisticsTable: "ingestion"
+goldStatistics:
+  statisticsSubPath: "gold/private/aplicaciones/transform"
+  statisticsDatabase: "aplicaciones"
+  statisticsTable: "transform"
+graylog:
+  graylogServerUrl: ""
+  host: ""
+  facility: ""
+  application: "Indation"
+  environment: ""
+  showInfo: false
+  showWarning: true
+  showError: true

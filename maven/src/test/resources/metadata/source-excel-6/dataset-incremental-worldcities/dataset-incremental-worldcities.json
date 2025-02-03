@@ -1,0 +1,76 @@
+{
+  "name": "incremental-worldcities",
+  "description": "Dataset incremental world cities",
+  "sourceName": "source-excel-6",
+  "typ": { "value": "file" },
+  "version": 1,
+  "enabled": true,
+  "classification": { "value": "public" },
+  "effectiveDate": "2020-07-03 10:10:00",
+  "ingestionMode": { "value": "incremental" },
+  "validationMode": { "value": "permissive" },
+  "createDatabase": true,
+  "database": "database6",
+  "table": "incremental_worldcities",
+  "partitionBy": "yyyy/mm/dd",
+  "permissiveThresholdType": {"value" :"percentage"},
+  "permissiveThreshold": 20,
+  "fileInput":{
+    "format": { "value": "xls" },
+    "filePattern": "<yyyy><mm><dd>_incremental_worldCities.xls",
+    "xls": {
+      "header": { "value": "first_line"},
+      "dataRange": "A1"
+    }
+  },
+  "schemaDefinition": {"value": "json-columns"},
+  "schemaFile": "",
+  "schemaColumns": {
+    "columns": [
+      {
+        "name": "name",
+        "typ": {"value":  "string"},
+        "isPrimaryKey": false,
+        "isTimestamp": false,
+        "position": 1,
+        "sensitive": false
+      },
+      {
+        "name": "country",
+        "typ": {"value":  "string"},
+        "isPrimaryKey": false,
+        "isTimestamp": false,
+        "position": 2,
+        "sensitive": false
+      },
+      {
+        "name": "subcountry",
+        "typ": {"value":  "string"},
+        "isPrimaryKey": false,
+        "isTimestamp": false,
+        "position": 3,
+        "sensitive": false
+      },
+      {
+        "name": "geonameid",
+        "typ": {"value":  "long"},
+        "isPrimaryKey": true,
+        "isTimestamp": false,
+        "position": 4,
+        "sensitive": false
+      },
+      {
+        "name": "timeStamp",
+        "typ": {"value":  "datetime"},
+        "isPrimaryKey": false,
+        "isTimestamp": true,
+        "position": 5,
+        "sensitive": false,
+        "transformation" : {
+          "typ": {"value": "date"},
+          "pattern": "yyyy-MM-dd HH:mm:ss"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,211 @@
+{
+  "name": "dataset-api-sensitive",
+  "description": "dataset api sensitive",
+  "sourceName": "source-api",
+  "typ": { "value": "api" },
+  "version": 1,
+  "enabled": true,
+  "classification": { "value": "public" },
+  "effectiveDate": "2020-07-03 10:10:00",
+  "ingestionMode": { "value": "full_snapshot" },
+  "validationMode": { "value": "fail_fast" },
+  "createDatabase": true,
+  "database": "database_api",
+  "table": "api_sensitive",
+  "partitionBy": "",
+  "permissiveThresholdType": {"value" :"absolute"},
+  "permissiveThreshold": 10,
+  "apiInput":{
+    "endpoint": "People",
+    "parameters": "",
+    "pagination": {
+      "typ": {"value" :"offset"},
+      "top": "$top",
+      "skip": "$skip",
+      "topSize": 10
+    },
+    "dataIn": "value",
+    "headers": {
+      "content-type": "json"
+    }
+  },
+  "schemaDefinition": {"value": "json-columns"},
+  "schemaFile": "/source-api/dataset-api-full/dataset-api-fullsnapshot_schema.json",
+  "schemaColumns": {
+    "columns": [
+      {
+        "name": "UserName",
+        "typ": {"value":  "string"},
+        "isPrimaryKey": true,
+        "position": 1,
+        "sensitive": true
+      },
+      {
+        "name": "Concurrency",
+        "typ": {"value":  "long"},
+        "position": 2,
+        "sensitive": false
+      },
+      {
+        "name": "FirstName",
+        "typ": {"value":  "string"},
+        "position": 2,
+        "sensitive": false
+      },
+      {
+        "name": "LastName",
+        "typ": {"value":  "string"},
+        "position": 2,
+        "sensitive": true
+      },
+      {
+        "name": "Timestamp",
+        "alias": "timeStamp_alias",
+        "typ": {"value":  "string"},
+        "isPrimaryKey": false,
+        "isTimestamp": true,
+        "position": 5,
+        "sensitive": false
+      },
+      {
+        "name": "Age",
+        "typ": {"value":  "integer"},
+        "position": 2,
+        "sensitive": true
+      },
+      {
+        "name": "AddressInfo",
+        "typ": {"value":  "array"},
+        "arrayInfo": {
+          "elementType": {"value":  "long"}
+        },
+        "position": 4,
+        "isPrimaryKey": false,
+        "isTimestamp": false,
+        "sensitive": true
+      },
+      {
+        "name": "City",
+        "typ": {"value":  "struct"},
+        "sensitive": false
+      },
+      {
+        "name": "Country",
+        "typ": {"value":  "string"},
+        "parentName": "City",
+        "sensitive": false
+      },
+      {
+        "name": "Region",
+        "typ": {"value":  "struct"},
+        "parentName": "City",
+        "sensitive": false
+      },
+      {
+        "name": "Number",
+        "typ": {"value":  "long"},
+        "parentName": "Region",
+        "sensitive": true
+      },
+      {
+        "name": "Name",
+        "typ": {"value":  "string"},
+        "parentName": "Region",
+        "sensitive": false
+      },
+      {
+        "name": "Street",
+        "typ": {"value":  "array"},
+        "arrayInfo": {
+          "elementType": {"value":  "integer"}
+        },
+        "parentName": "Region",
+        "sensitive": true
+      },
+      {
+        "name": "Name",
+        "typ": {"value":  "string"},
+        "parentName": "City",
+        "sensitive": false
+      },
+      {
+        "name": "ArrayOfArrays",
+        "typ": {"value":  "array"},
+        "arrayInfo": {
+          "elementType": {"value":  "array"}
+        },
+        "sensitive": true
+      },
+      {
+        "name": "ArrayField",
+        "typ": {"value":  "array"},
+        "arrayInfo": {
+          "elementType": {"value":  "integer"}
+        },
+        "parentName": "ArrayOfArrays",
+        "sensitive": false
+      },
+      {
+        "name": "ArrayOfStruct",
+        "typ": {"value":  "array"},
+        "arrayInfo": {
+          "elementType": {"value":  "struct"}
+        },
+        "sensitive": false
+      },
+      {
+        "name": "StructElement",
+        "typ": {"value":  "struct"},
+        "parentName": "ArrayOfStruct",
+        "sensitive": false
+      },
+      {
+        "name": "StructField1",
+        "typ": {"value":  "string"},
+        "parentName": "StructElement",
+        "sensitive": true
+      },
+      {
+        "name": "StructField2",
+        "typ": {"value":  "integer"},
+        "parentName": "StructElement",
+        "sensitive": false
+      },
+      {
+        "name": "ArrayOfArraysOfStruct",
+        "typ": {"value":  "array"},
+        "arrayInfo": {
+          "elementType": {"value":  "array"}
+        },
+        "sensitive": false
+      },
+      {
+        "name": "ArrayOfArrayElement",
+        "typ": {"value":  "array"},
+        "arrayInfo": {
+          "elementType": {"value":  "struct"}
+        },
+        "parentName": "ArrayOfArraysOfStruct",
+        "sensitive": false
+      },
+      {
+        "name": "StructElement_new",
+        "typ": {"value":  "struct"},
+        "parentName": "ArrayOfArrayElement",
+        "sensitive": false
+      },
+      {
+        "name": "StructField1_1",
+        "typ": {"value":  "string"},
+        "parentName": "StructElement_new",
+        "sensitive": false
+      },
+      {
+        "name": "StructField2_1",
+        "typ": {"value":  "integer"},
+        "parentName": "StructElement_new",
+        "sensitive": false
+      }
+    ]
+  }
+}

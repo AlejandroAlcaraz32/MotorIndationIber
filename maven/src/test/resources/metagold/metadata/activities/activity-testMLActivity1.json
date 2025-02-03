@@ -1,0 +1,11 @@
+{
+  "name": "testMLActivity1",
+  "type": "databricks",
+  "description":"activity for testing",
+  "trigger": "EveryDayAt09AM",
+  "transformations": [
+    "transform-testMLTrans1",
+    "transform-testMLTrans2"
+  ],
+  "parameters": []
+}

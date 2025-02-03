@@ -1,0 +1,62 @@
+metadata:
+  storageAccountName: "MetadataStorageAccount"
+  basePathIngestion: "/metadataBasePath"
+  basePathTransform: ""
+  container: "MetadataContainerTest"
+  datasource:
+    server: ""
+    port: ""
+    database: ""
+    username: "sa"
+    passwordkey: ""
+    driver: "org.h2.Driver"
+    protocol: "jdbc:h2:mem:indation_tests;MODE=PostgreSQL"
+    options: {}
+databricks:
+  secrets:
+    scope: "scope1"
+landing:
+  storageAccountName: "LandingStorageAccount"
+  basePath: "/LandingTestPath"
+  container: "LandingContainerTest"
+  landingPath: "landing"
+  errorPath: "error"
+  archivePath: "archive"
+  pendingDirectory: "LandingPendingDirectory"
+  unknownDirectory: "LandingUnknownDirectory"
+  invalidDirectory: "LandingInvalidDirectory"
+  corruptedDirectory: "LandingCorruptedDirectory"
+  schemaMismatchDirectory: "LandingSchemaMismatchDirectory"
+  streamingDirectory: "LandingStreamingDirectory"
+datalake:
+  storageAccountName: "storageAccount1"
+  basePath: "/testPath"
+  container: "DatalakeContainterTest"
+  outputType:
+    value: "delta"
+  bronzePath: "bronze"
+  silverPath: "silver"
+  goldPath: "gold"
+  versionsPath: "versions"
+  dataPath: "data"
+  QAerrorPath: "qa/error"
+security:
+  identity:
+    servicePrincipalAppIdKey: "01"
+    servicePrincipalTenantIdKey: "01"
+    servicePrincipalPasswordKey: "KeyTest"
+  encryption:
+    encryptionType:
+      value: "pseudonymization"
+    masterKey: "xxxxxxxxxxxxxxxx"
+    encryptRawFile: true
+    hashSalt: "yyyyyyyyyyyy"
+    encryptionAlgorithm:
+      algorithm:
+        value: "AES"
+      mode:
+        value: "CTR"
+      padding: "NoPadding"
+environment:
+  value: "local"
+tmpDirectory: "/tmp/"

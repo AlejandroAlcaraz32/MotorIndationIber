@@ -1,0 +1,108 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/object1646301127.json",
+  "title": "Root",
+  "type": "object",
+  "required": [
+    "name",
+    "description"
+  ],
+  "properties": {
+    "name": {
+      "$id": "#root/name",
+      "title": "Name",
+      "type": "string",
+      "default": "",
+      "examples": [
+        "dependenciesCircular"
+      ],
+      "pattern": "^.*$"
+    },
+    "description": {
+      "$id": "#root/description",
+      "title": "Description",
+      "type": "string",
+      "default": "",
+      "examples": [
+        "activity for testing dependencies"
+      ],
+      "pattern": "^.*$"
+    },
+    "activityType": {
+      "$id": "#root/activityType",
+      "title": "Activitytype",
+      "type": "object",
+      "required": [
+        "value"
+      ],
+      "properties": {
+        "value": {
+          "$id": "#root/activityType/value",
+          "title": "Value",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "parallel"
+          ],
+          "pattern": "^.*$"
+        }
+      }
+    }
+  ,
+    "parallelTransformations": {
+      "$id": "#root/parallelTransformations",
+      "title": "Paralleltransformations",
+      "type": "array",
+      "default": [],
+      "items":{
+        "$id": "#root/parallelTransformations/items",
+        "title": "Items",
+        "type": "object",
+        "required": [
+          "name",
+          "dependencies"
+        ],
+        "properties": {
+          "name": {
+            "$id": "#root/parallelTransformations/items/name",
+            "title": "Name",
+            "type": "string",
+            "default": "",
+            "examples": [
+              "one-dlk"
+            ],
+            "pattern": "^.*$"
+          },
+          "dependencies": {
+            "$id": "#root/parallelTransformations/items/dependencies",
+            "title": "Dependencies",
+            "type": "array",
+            "default": [],
+            "items":{
+              "$id": "#root/parallelTransformations/items/dependencies/items",
+              "title": "Items",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "two-dlk"
+              ],
+              "pattern": "^.*$"
+            }
+          }
+        }
+      }
+
+    },
+    "parameters": {
+      "$id": "#root/parameters",
+      "title": "Parameters",
+      "type": "array",
+      "required": [
+        "shortName",
+        "longName",
+        "description"
+      ]
+    }
+  }
+}

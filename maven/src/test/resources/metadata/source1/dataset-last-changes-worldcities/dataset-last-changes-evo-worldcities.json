@@ -1,0 +1,93 @@
+{
+  "name": "last-changes-worldcities",
+  "description": "Dataset last changes world cities",
+  "sourceName": "source1",
+  "typ": { "value": "file" },
+  "version": 1,
+  "enabled": true,
+  "classification": { "value": "public" },
+  "effectiveDate": "2020-07-03 10:10:00",
+  "ingestionMode": { "value": "last_changes" },
+  "validationMode": { "value": "fail_fast" },
+  "createDatabase": true,
+  "database": "database1",
+  "table": "last_changes_worldcities",
+  "partitionBy": "yyyy/mm/dd",
+  "permissiveThresholdType": {"value" :"percentage"},
+  "permissiveThreshold": 20,
+  "fileInput":{
+    "format": { "value": "csv" },
+    "filePattern": "<yyyy><mm><dd>_last_changes_evo_worldCities.csv",
+    "csv": {
+      "charset": "UTF-8",
+      "header": { "value": "first_line"},
+      "delimiter":  ","
+    }
+  },
+  "schemaDefinition": {"value": "json-columns"},
+  "schemaFile": "",
+  "schemaColumns": {
+    "columns": [
+      {
+        "name": "name",
+        "typ": {"value":  "string"},
+        "isPrimaryKey": false,
+        "isTimestamp": false,
+        "position": 1,
+        "sensitive": false
+      },
+      {
+        "name": "country",
+        "typ": {"value":  "string"},
+        "isPrimaryKey": false,
+        "isTimestamp": false,
+        "position": 2,
+        "sensitive": false
+      },
+      {
+        "name": "subcountry",
+        "typ": {"value":  "string"},
+        "isPrimaryKey": false,
+        "isTimestamp": false,
+        "position": 3,
+        "sensitive": false
+      },
+      {
+        "name": "geonameid",
+        "typ": {"value":  "long"},
+        "isPrimaryKey": true,
+        "isTimestamp": false,
+        "position": 4,
+        "sensitive": false
+      },
+      {
+        "name": "timeStamp",
+        "typ": {"value":  "datetime"},
+        "isPrimaryKey": false,
+        "isTimestamp": true,
+        "position": 5,
+        "sensitive": false,
+        "transformation" : {
+          "typ": {"value": "date"},
+          "pattern": "yyyy-MM-dd HH:mm:ss"
+        }
+      },
+      {
+        "name": "evo1",
+        "typ": {"value":  "string"},
+        "isPrimaryKey": false,
+        "isTimestamp": false,
+        "position": 6,
+        "sensitive": false
+      },
+      {
+        "name": "geonameid2",
+        "typ": {"value":  "long"},
+        "isPrimaryKey": false,
+        "isTimestamp": false,
+        "position": 7,
+        "sensitive": false
+      }
+    ]
+  }
+}

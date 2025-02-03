@@ -1,0 +1,25 @@
+{
+  "name": "two-dlk",
+  "description":"Bring product category from silver. Simple full copy",
+  "typ": {"value":  "datalake"},
+  "datalakeTransformation":
+  {
+    "classification": "public",
+    "database": "production",
+    "table": "category2",
+    "mode": {"value":  "truncate"},
+    "stages": [
+      {
+        "name": "stage bring category from silver",
+        "description": "stage 1",
+        "typ": {"value":  "table"},
+        "stageTable": {
+          "name": "DimProductCategory",
+          "typ": {"value":  "silver"},
+          "database": "database",
+          "table": "DimProductCategory"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "name": "source1",
+  "description":"Source 1",
+  "typ": {"value":  "directory"}
+}

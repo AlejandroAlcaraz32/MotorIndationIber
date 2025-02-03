@@ -1,0 +1,226 @@
+{
+	"name": "dim_empleado",
+	"description": "",
+	"sourceName": "dimensiones",
+	"typ": {
+		"value": "file"
+	},
+	"version": 1,
+	"enabled": true,
+	"classification": {
+		"value": "public"
+	},
+	"effectiveDate": "2020-07-03 10:10:00",
+	"ingestionMode": {
+		"value": "full_snapshot"
+	},
+	"validationMode": {
+		"value": "fail_fast"
+	},
+	"createDatabase": true,
+	"database": "slv_personas",
+	"table": "dim_empleado",
+	"partitionBy": "",
+	"permissiveThresholdType": {
+		"value": "absolute"
+	},
+	"permissiveThreshold": 10,
+	"fileInput": {
+		"format": {
+			"value": "csv"
+		},
+		"filePattern": "BBDD_MVPTRAVEL.csv",
+		"csv": {
+			"charset": "UTF-16",
+			"header": {
+				"value": "without_header"
+			},
+			"delimiter": ";",
+			"lineSep": "\r"
+		}
+	},
+	"schemaDefinition": {
+		"value": "json-columns"
+	},
+	"schemaFile": "",
+	"schemaColumns": {
+		"columns": [
+			{
+				"name": "email",
+				"typ": {
+					"value": "string"
+				},
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 1,
+				"sensitive": false
+			},
+			{
+				"name": "id_trabajador",
+				"typ": {
+					"value": "string"
+				},
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 2,
+				"sensitive": false
+			},
+			{
+				"name": "apellidos",
+				"typ": {
+					"value": "string"
+				},
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 3,
+				"sensitive": false
+			},
+			{
+				"name": "nombre",
+				"typ": {
+					"value": "string"
+				},
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 4,
+				"sensitive": false
+			},
+			{
+				"name": "nomenclatura_firma",
+				"typ": {
+					"value": "string"
+				},
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 5,
+				"sensitive": false
+			},
+			{
+				"name": "departamento_firma",
+				"typ": {
+					"value": "string"
+				},
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 6,
+				"sensitive": false
+			},
+			{
+				"name": "empresa",
+				"typ": {
+					"value": "string"
+				},
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 7,
+				"sensitive": false
+			},
+			{
+				"name": "centro_trabajo_desc",
+				"typ": {
+					"value": "string"
+				},
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 8,
+				"sensitive": false
+			},
+			{
+				"name": "departamento",
+				"typ": {
+					"value": "string"
+				},
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 9,
+				"sensitive": false
+			},
+			{
+				"name": "area",
+				"typ": {
+					"value": "string"
+				},
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 10,
+				"sensitive": false
+			},
+			{
+				"name": "subarea",
+				"typ": {
+					"value": "string"
+				},
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 11,
+				"sensitive": false
+			},
+			{
+				"name": "atributo_direccion",
+				"typ": {
+					"value": "string"
+				},
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 12,
+				"sensitive": false
+			},
+			{
+				"name": "atributo_1_vertical-3_transversal-refacturacion",
+				"typ": {
+					"value": "string"
+				},
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 13,
+				"sensitive": false
+			},
+			{
+				"name": "responsable_1",
+				"typ": {
+					"value": "string"
+				},
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 14,
+				"sensitive": false
+			},
+			{
+				"name": "usr_puesto_trabajo",
+				"typ": {
+					"value": "string"
+				},
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 15,
+				"sensitive": false
+			},
+			{
+				"name": "cambios_temporales",
+				"typ": {
+					"value": "string"
+				},
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 16,
+				"sensitive": false
+			},
+			{
+				"name": "fecha",
+				"typ": {
+					"value": "date"
+				},
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 17,
+				"sensitive": false,
+				"transformation": {
+					"typ": {
+						"value": "date"
+					},
+					"pattern": "dd/MM/yyyy"
+				}
+			}
+		]
+	}
+}

@@ -1,0 +1,847 @@
+{
+	"name": "atributos",
+	"description": "Dataset basado en la hoja atributos de la excel de portal del empleado",
+	"sourceName": "demo",
+	"typ": {
+		"value": "file"
+	},
+	"version": 1,
+	"enabled": true,
+	"classification": {
+		"value": "public"
+	},
+	"effectiveDate": "2020-07-03 10:10:00",
+	"ingestionMode": {
+		"value": "full_snapshot"
+	},
+	"validationMode": {
+		"value": "fail_fast"
+	},
+	"createDatabase": true,
+	"database": "slv_portal_empleado",
+	"table": "atributos",
+	"partitionBy": "yyyy/mm/dd",
+	"permissiveThresholdType": {
+		"value": "percentage"
+	},
+	"permissiveThreshold": 20,
+	"fileInput": {
+		"format": {
+			"value": "csv"
+		},
+		"filePattern": "<yyyy><mm><dd>_atributos.csv",
+		"csv": {
+			"charset": "UTF-8",
+			"header": {
+				"value": "ignore_header"
+			},
+			"delimiter": "|"
+		}
+	},
+	"schemaDefinition": {
+		"value": "json-columns"
+	},
+	"schemaFile": "",
+	"schemaColumns": {
+		"columns": [
+			{
+				"name": "Nombre",
+				"typ": {
+					"value": "string"
+				},
+				"description": "Nombre",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 1,
+				"sensitive": false
+			},
+			{
+				"name": "Contrato",
+				"typ": {
+					"value": "string"
+				},
+				"description": "Contrato",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 2,
+				"sensitive": false
+			},
+			{
+				"name": "NIF",
+				"typ": {
+					"value": "string"
+				},
+				"description": "NIF",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 3,
+				"sensitive": false
+			},
+			{
+				"name": "Fecha_alta",
+				"typ": {
+					"value": "string"
+				},
+				"description": "Fecha alta",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 4,
+				"sensitive": false,
+				"transformation": {
+					"typ": {
+						"value": "date"
+					},
+					"pattern": "yyyy-MM-dd"
+				}
+			},
+			{
+				"name": "Fecha_baja",
+				"typ": {
+					"value": "string"
+				},
+				"description": "Fecha baja",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 5,
+				"sensitive": false,
+				"transformation": {
+					"typ": {
+						"value": "date"
+					},
+					"pattern": "yyyy-MM-dd"
+				}
+			},
+			{
+				"name": "USR_Correo_electrónico",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_Correo electrónico",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 6,
+				"sensitive": false
+			},
+			{
+				"name": "Nivel0",
+				"typ": {
+					"value": "string"
+				},
+				"description": "Nivel0",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 7,
+				"sensitive": false
+			},
+			{
+				"name": "Nivel1",
+				"typ": {
+					"value": "string"
+				},
+				"description": "Nivel1",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 8,
+				"sensitive": false
+			},
+			{
+				"name": "Nivel2",
+				"typ": {
+					"value": "string"
+				},
+				"description": "Nivel2",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 9,
+				"sensitive": false
+			},
+			{
+				"name": "Nivel3",
+				"typ": {
+					"value": "string"
+				},
+				"description": "Nivel3",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 10,
+				"sensitive": false
+			},
+			{
+				"name": "Nivel4",
+				"typ": {
+					"value": "string"
+				},
+				"description": "Nivel4",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 11,
+				"sensitive": false
+			},
+			{
+				"name": "USR_Tipo_contrato",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_Tipo contrato",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 12,
+				"sensitive": false
+			},
+			{
+				"name": "USR_num_seg_social",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_num_seg_social",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 13,
+				"sensitive": false
+			},
+			{
+				"name": "USR_Motivo_baja",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_Motivo baja",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 14,
+				"sensitive": false
+			},
+			{
+				"name": "USR_Observaciones_b",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_Observaciones b",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 15,
+				"sensitive": false
+			},
+			{
+				"name": "USR_Fecha_antiguedad",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_Fecha antiguedad",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 16,
+				"sensitive": false,
+				"transformation": {
+					"typ": {
+						"value": "date"
+					},
+					"pattern": "yyyy-MM-dd"
+				}
+			},
+			{
+				"name": "USR_Fecha_antigüedad_plus",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_Fecha antigüedad plus",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 17,
+				"sensitive": false,
+				"transformation": {
+					"typ": {
+						"value": "date"
+					},
+					"pattern": "yyyy-MM-dd"
+				}
+			},
+			{
+				"name": "USR_Estado",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_Estado",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 18,
+				"sensitive": false
+			},
+			{
+				"name": "USR_Huella_pin",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_Huella_pin",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 19,
+				"sensitive": false
+			},
+			{
+				"name": "USR_Pin",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_Pin",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 20,
+				"sensitive": false
+			},
+			{
+				"name": "USR_Matricula",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_Matricula",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 21,
+				"sensitive": false
+			},
+			{
+				"name": "USR_Empresa_Plus",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_Empresa Plus",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 22,
+				"sensitive": false
+			},
+			{
+				"name": "USR_Calendario",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_Calendario",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 23,
+				"sensitive": false
+			},
+			{
+				"name": "USR_Calend_wfm",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_Calend_wfm",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 24,
+				"sensitive": false
+			},
+			{
+				"name": "USR_Centro_coste",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_Centro coste",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 25,
+				"sensitive": false
+			},
+			{
+				"name": "USR_Anualizable",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_Anualizable",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 26,
+				"sensitive": false
+			},
+			{
+				"name": "USR_Autocompensa",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_Autocompensa",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 27,
+				"sensitive": false
+			},
+			{
+				"name": "USR_Exceso_jornada",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_Exceso jornada",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 28,
+				"sensitive": false
+			},
+			{
+				"name": "USR_Externo",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_Externo",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 29,
+				"sensitive": false
+			},
+			{
+				"name": "USR_Hc",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_Hc",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 30,
+				"sensitive": false
+			},
+			{
+				"name": "USR_Horas_anuales",
+				"typ": {
+					"value": "integer"
+				},
+				"description": "USR_Horas anuales",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 31,
+				"sensitive": false
+			},
+			{
+				"name": "USR_Horas_jornada",
+				"typ": {
+					"value": "decimal"
+				},
+				"description": "USR_Horas jornada",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 32,
+				"sensitive": false,
+				"decimalParameters": {
+					"precision": 5,
+					"scale": 2
+				},
+				"transformation": {
+					"typ": {
+						"value": "comma"
+					}
+				}
+			},
+			{
+				"name": "USR_Porcentaje_jorn",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_Porcentaje jorn",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 33,
+				"sensitive": false
+			},
+			{
+				"name": "USR_Motivo_Porcenta",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_Motivo_Porcenta",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 34,
+				"sensitive": false
+			},
+			{
+				"name": "USR_Turno",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_Turno",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 35,
+				"sensitive": false
+			},
+			{
+				"name": "USR_Turno_sire",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_Turno_sire",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 36,
+				"sensitive": false
+			},
+			{
+				"name": "USR_tiempo_comida",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_tiempo_comida",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 37,
+				"sensitive": false
+			},
+			{
+				"name": "USR_Tiempo_flexible",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_Tiempo_flexible",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 38,
+				"sensitive": false
+			},
+			{
+				"name": "USR_Rotacion",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_Rotacion",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 39,
+				"sensitive": false
+			},
+			{
+				"name": "USR_Dias_vacaciones_anuales",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_Dias de vacaciones anuales",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 40,
+				"sensitive": false
+			},
+			{
+				"name": "USR_Recuperables",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_Recuperables",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 41,
+				"sensitive": false
+			},
+			{
+				"name": "USR_Horas_a_favor",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_Horas a favor",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 42,
+				"sensitive": false
+			},
+			{
+				"name": "USR_rtv",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_rtv",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 43,
+				"sensitive": false
+			},
+			{
+				"name": "USR_Grupo_cotizacio",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_Grupo cotizacio",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 44,
+				"sensitive": false
+			},
+			{
+				"name": "USR_Minusvalia",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_Minusvalia",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 45,
+				"sensitive": false
+			},
+			{
+				"name": "USR_nivel",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_nivel",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 46,
+				"sensitive": false
+			},
+			{
+				"name": "USR_clasif_interna",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_clasif_interna",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 47,
+				"sensitive": false
+			},
+			{
+				"name": "USR_movil",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_movil",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 48,
+				"sensitive": false
+			},
+			{
+				"name": "USR_telefono",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_telefono",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 49,
+				"sensitive": false
+			},
+			{
+				"name": "USR_telefono2",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_telefono2",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 50,
+				"sensitive": false
+			},
+			{
+				"name": "USR_direccion",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_direccion",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 51,
+				"sensitive": false
+			},
+			{
+				"name": "USR_codigo_postal",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_codigo_postal",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 52,
+				"sensitive": false
+			},
+			{
+				"name": "USR_poblacion",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_poblacion",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 53,
+				"sensitive": false
+			},
+			{
+				"name": "USR_numero_hijos",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_numero_hijos",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 54,
+				"sensitive": false
+			},
+			{
+				"name": "USR_sexo",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_sexo",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 55,
+				"sensitive": false
+			},
+			{
+				"name": "USR_pais_nac",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_pais_nac",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 56,
+				"sensitive": false
+			},
+			{
+				"name": "USR_fecha_nacimiento",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_fecha_nacimiento",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 57,
+				"sensitive": false,
+				"transformation": {
+					"typ": {
+						"value": "date"
+					},
+					"pattern": "yyyy-MM-dd"
+				}
+			},
+			{
+				"name": "USR_estado_civil",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_estado_civil",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 58,
+				"sensitive": false
+			},
+			{
+				"name": "USR_convenio",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_convenio",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 59,
+				"sensitive": false
+			},
+			{
+				"name": "USR_Nombre_convenio",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_Nombre convenio",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 60,
+				"sensitive": false
+			},
+			{
+				"name": "USR_cat_convenio",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_cat_convenio",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 61,
+				"sensitive": false
+			},
+			{
+				"name": "USR_Representante",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_Representante",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 62,
+				"sensitive": false
+			},
+			{
+				"name": "USR_titulacion1",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_titulacion1",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 63,
+				"sensitive": false
+			},
+			{
+				"name": "USR_titulacion2",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_titulacion2",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 64,
+				"sensitive": false
+			},
+			{
+				"name": "USR_titulacion3",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_titulacion3",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 65,
+				"sensitive": false
+			},
+			{
+				"name": "USR_nivel_estudios1",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_nivel_estudios1",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 66,
+				"sensitive": false
+			},
+			{
+				"name": "USR_nivel_estudios2",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_nivel_estudios2",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 67,
+				"sensitive": false
+			},
+			{
+				"name": "USR_nivel_estudios3",
+				"typ": {
+					"value": "string"
+				},
+				"description": "USR_nivel_estudios3",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 68,
+				"sensitive": false
+			},
+			{
+				"name": "Usuario",
+				"typ": {
+					"value": "string"
+				},
+				"description": "Usuario",
+				"isPrimaryKey": false,
+				"isTimestamp": false,
+				"position": 69,
+				"sensitive": false
+			}
+		]
+	}
+}

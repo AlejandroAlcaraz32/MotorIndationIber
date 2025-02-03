@@ -1,0 +1,23 @@
+{
+  "name": "testMLActivity6",
+  "type": "databricks",
+  "description":"activity for testing",
+  "trigger": "EveryDayAt09AM",
+  "transformations": [
+    "transform-testMLTrans7"
+  ],
+  "parameters": [
+    {
+      "shortName": "pCMESANO",
+      "longName": "paramCMESANO",
+      "description": "Param cmesano",
+      "value": "today"
+    },
+    {
+      "shortName": "pV",
+      "longName": "paramVal",
+      "description": "Param cmesano",
+      "value": 1
+    }
+  ]
+}

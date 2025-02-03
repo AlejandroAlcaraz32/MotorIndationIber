@@ -1,0 +1,21 @@
+{
+    "activity": "ingest",
+    "source": "source1",
+    "dataset": "dataset1",
+    "version": 1,
+    "executionStart": "2020-07-07 10:10:00",
+    "executionEnd": "2020-07-07 10:15:30",
+    "duration": 330000,
+    "result": "OK",
+    "message": "Ingestion OK",
+    "file": "2020707_file.csv",
+    "validRows": 5400,
+    "invalidRows": 0,
+    "ingestionMode": "incremental",
+    "validacionMode": "fail_fast",
+    "reprocess": "none",
+    "landing":"",
+    "bronze": "/bronze/source1/dataset1/yyyy/mm/dd/20200707_file.csv.gz",
+    "silver": "/silver/public/source1/dataset1",
+    "partition": "yyyy = '2020' AND mm = '01' AND dd = '01'"
+}

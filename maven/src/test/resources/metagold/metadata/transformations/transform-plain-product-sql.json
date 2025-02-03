@@ -1,0 +1,74 @@
+{
+  "name": "plain-product-sql",
+  "description":"product joined with category and subcategory",
+  "typ": {"value":  "sql"},
+  "sqlTransformation":
+  {
+    "sourceTables": [
+      {
+        "dlkClassification": "public",
+        "dlkDatabase": "production",
+        "dlkTable": "category",
+        "dlkFilterExpr": "ProductCategoryKey <= 3",
+        "sqlConnection": "testConnection",
+        "sqlSchema": "staging",
+        "sqlTable": "category",
+        "sqlWriteMode": {"value":  "append"},
+        "cleanAfter": false,
+        "dropAfter": true
+      },
+      {
+        "dlkSQL": "select ProductName, sum, sumDistinct, count from vw_result",
+        "sqlConnection": "testConnectionUrl",
+        "sqlSchema": "staging",
+        "sqlTable": "product_subcategory",
+        "sqlWriteMode": {"value":  "overwrite"},
+        "cleanAfter": true,
+        "dropAfter": false
+      },
+      {
+        "dlkClassification": "public",
+        "dlkDatabase": "production",
+        "dlkTable": "category",
+        "sqlConnection": "testConnection",
+        "sqlSchema": "staging",
+        "sqlTable": "category2",
+        "sqlWriteMode": {"value":  "truncate"},
+        "cleanAfter": false,
+        "dropAfter": false,
+        "deleteAfterWhere": "ProductCategoryKey <= 3"
+      }
+    ],
+    "stages": [
+      {
+        "connection": "testConnection",
+        "destSchema": "datamart",
+        "destTable": "plainProduct",
+        "sqlSelectExpr": "select * from staging.product_subcategory",
+        "writeMode": {"value":  "truncate"},
+        "cleanAfter": true,
+        "dropAfter": false
+      },
+      {
+        "connection": "testConnection",
+        "destSchema": "datamart",
+        "destTable": "category",
+        "sqlSelectExpr": "select * from staging.category",
+        "filterExpr": "paramCategory = ProductCategoryKey",
+        "writeMode": {"value":  "overwrite"},
+        "cleanAfter": false,
+        "dropAfter": true
+      },
+      {
+        "connection": "testConnection",
+        "destSchema": "datamart",
+        "destTable": "aggProduct",
+        "sqlSelectExpr": "select ProductName, count(*) total from datamart.category cross join datamart.plainProduct group by ProductName",
+        "writeMode": {"value":  "overwrite"},
+        "cleanAfter": false,
+        "dropAfter": false
+
+      }
+    ]
+  }
+}

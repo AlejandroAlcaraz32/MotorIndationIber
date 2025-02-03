@@ -1,0 +1,9 @@
+{
+  "name": "demoTransformOk",
+  "description":"activity for testing",
+  "transformations": [
+    "demo-transformacion-dlk"
+  ],
+  "parameters": [
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "name": "dataset111",
+  "description": "Dataset permissive world cities quality",
+  "sourceName": "source1",
+  "typ": { "value": "file" },
+  "version": 1,
+  "enabled": true,
+  "classification": { "value": "public" },
+  "effectiveDate": "2020-07-03 10:10:00",
+  "ingestionMode": { "value": "full_snapshot" },
+  "validationMode": { "value": "permissive" },
+  "createDatabase": true,
+  "database": "database1",
+  "table": "permissive_worldcitiesquality",
+  "partitionBy": "yyyy/mm/dd",
+  "permissiveThresholdType": {"value" :"absolute"},
+  "permissiveThreshold": 5,
+  "fileInput":{
+    "format": { "value": "csv" },
+    "filePattern": "<yyyy><mm><dd>_data1111.csv",
+    "csv": {
+      "charset": "UTF-8",
+      "header": { "value": "first_line"},
+      "delimiter":  ","
+    }
+  },
+  "schemaDefinition": {"value": "json-columns"},
+  "schemaFile": "",
+  "schemaColumns": {
+    "columns": [
+      {
+        "name": "name",
+        "typ": {"value":  "string"},
+        "description": "Column 1",
+        "isPrimaryKey": false,
+        "isTimestamp": false,
+        "position": 1,
+        "sensitive": false
+      },
+      {
+        "name": "country",
+        "typ": {"value":  "string"},
+        "description": "Column 2",
+        "isPrimaryKey": false,
+        "isTimestamp": false,
+        "position": 2,
+        "sensitive": false
+      },
+      {
+        "name": "subcountry",
+        "typ": {"value":  "string"},
+        "isPrimaryKey": false,
+        "isTimestamp": false,
+        "position": 3,
+        "sensitive": false
+      },
+      {
+        "name": "geonameid",
+        "typ": {"value":  "long"},
+        "isPrimaryKey": true,
+        "isTimestamp": false,
+        "position": 4,
+        "sensitive": false
+      },
+      {
+        "name": "timeStamp",
+        "typ": {"value":  "datetime"},
+        "isPrimaryKey": false,
+        "isTimestamp": true,
+        "position": 5,
+        "sensitive": false,
+        "transformation" : {
+          "typ": {"value": "date"},
+          "pattern": "yyyy-MM-dd HH:mm:ss"
+        }
+      }
+    ]
+  },
+  "qualityRules": {
+    "mode": { "value": "reject" },
+    "uniquenessRule": {
+      "rules": [
+        {
+          "name": "uniqueRule1",
+          "columns": ["name","country"]
+        }
+      ]
+    },
+    "notNullRule": ["subcountry"],
+    "integrityRule": {
+      "rules": [
+        {
+          "name": "Integrity1",
+          "localColumns": ["country"],
+          "referencedTable": "database1.last_changes_worldcities",
+          "referencedColumns": ["country"]
+        }
+      ]},
+    "expressionRule": {
+      "rules": [
+        {
+          "name": "expr1",
+          "expr": "geonameid > 7"
+        }
+      ]
+    }
+  }
+}

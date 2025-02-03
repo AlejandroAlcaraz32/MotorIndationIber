@@ -1,0 +1,6 @@
+{
+  "sourceId": 1,
+  "name": "demo",
+  "description":"Source directory in pending/demo",
+  "typ": {"value":  "directory"}
+}

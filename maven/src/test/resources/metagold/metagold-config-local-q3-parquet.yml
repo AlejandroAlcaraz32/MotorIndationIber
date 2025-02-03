@@ -1,0 +1,57 @@
+databricks:
+  secrets:
+    scope: "databricksScope"
+metadata:
+  storageAccountName: ""
+  basePathIngestion: ""
+  basePathTransform: "src/test/resources/metagold/metadata"
+  container: ""
+datalake:
+  storageAccountName: ""
+  basePath: "src/test/resources/metagold/datalake"
+  container: ""
+  outputType:
+    value: "parquet"
+  bronzePath: "bronze"
+  silverPath: "silver"
+  goldPath: "gold"
+  versionsPath: "versions"
+  dataPath: "data"
+  QAerrorPath: "qa/error"
+landing:
+  storageAccountName: "${LANDING_STORAGE_ACCOUNT}"
+  basePath:  "abfss://${landingcontainer}@${LANDING_STORAGE_ACCOUNT}.dfs.core.windows.net/${ORGANIZATION}/"
+  container: "${landingcontainer}"
+  landingPath: "landing"
+  errorPath: "error"
+  archivePath: "archive"
+  pendingDirectory: "pending"
+  unknownDirectory: "unknown"
+  invalidDirectory: "invalid"
+  corruptedDirectory: "corrupted"
+  schemaMismatchDirectory: "schema-mismatch"
+  streamingDirectory: "streaming"
+goldStatistics:
+  statisticsSubPath: "/gold/private/aplicaciones/quality3"
+  statisticsDatabase: "aplicaciones"
+  statisticsTable: "quality3"
+security:
+  identity:
+    servicePrincipalAppIdKey: "userKey"
+    servicePrincipalTenantIdKey: "tenantKey"
+    servicePrincipalPasswordKey: "passwordKey"
+  encryption:
+    encryptionType:
+      value: "pseudonymization"
+    masterKey: "xxxxxxxxxxxxxxxx"
+    encryptRawFile: true
+    hashSalt: "yyyyyyyyyyyy"
+    encryptionAlgorithm:
+      algorithm:
+        value: "AES"
+      mode:
+        value: "CTR"
+      padding: "NoPadding"
+environment:
+  value: "local"
+tmpDirectory: "tmp/"

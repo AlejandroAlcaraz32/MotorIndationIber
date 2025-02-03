@@ -1,0 +1,16 @@
+{
+  "name": "testActivity",
+  "description":"activity for testing",
+  "transformations": [
+    "product-subcategory-dlk",
+    "category-dlk",
+    "plain-product-sql"
+  ],
+  "parameters": [
+    {
+      "shortName": "paramCat",
+      "longName": "paramCategory",
+      "description": "Param Category"
+    }
+  ]
+}

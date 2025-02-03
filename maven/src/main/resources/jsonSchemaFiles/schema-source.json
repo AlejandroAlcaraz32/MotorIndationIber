@@ -1,0 +1,328 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "type": "object",
+  "title": "Source",
+  "description": "Data source connection schema.",
+  "required": [
+    "name",
+    "typ"
+  ],
+  "properties": {
+    "name": {
+      "$id": "#/properties/name",
+      "type": "string",
+      "title": "Source name",
+      "description": "Unique name for the data source.",
+      "default": ""
+    },
+    "description": {
+      "$id": "#/properties/description",
+      "type": "string",
+      "title": "Source description",
+      "description": "Purpose of this data source.",
+      "default": ""
+    },
+    "typ": {
+      "$id": "#/properties/typ",
+      "type": "object",
+      "title": "Source type",
+      "description": "Type of data source",
+      "default": {},
+      "examples": [
+        {
+          "value": "directory"
+        },
+        {
+          "value": "jdbc"
+        },
+        {
+          "value": "kafka"
+        },
+        {
+          "value": "api"
+        }
+      ],
+      "required": [
+        "value"
+      ],
+      "properties": {
+        "value": {
+          "$id": "#/properties/typ/properties/value",
+          "type": "string",
+          "title": "Source type value",
+          "description": "Data source type string.",
+          "default": "",
+          "examples": [
+            "jdbc","directory","kafka, api"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "jdbcConnection": {
+      "$id": "#/properties/jdbcConnection",
+      "type": "object",
+      "title": "The jdbcConnection schema",
+      "description": "JDBC connection properties.",
+      "default": {},
+      "required": [
+        "driver",
+        "authenticationType"
+      ],
+      "properties": {
+        "driver": {
+          "$id": "#/properties/jdbcConnection/properties/driver",
+          "type": "object",
+          "title": "The driver schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": {},
+          "examples": [
+            {
+              "value": "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+            }
+          ],
+          "required": [
+            "value"
+          ],
+          "properties": {
+            "value": {
+              "$id": "#/properties/jdbcConnection/properties/driver/properties/value",
+              "type": "string",
+              "title": "The value schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": "",
+              "examples": [
+                "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+              ]
+            }
+          },
+          "additionalProperties": true
+        },
+        "host": {
+          "$id": "#/properties/jdbcConnection/properties/host",
+          "type": "string",
+          "title": "The host schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "localhost"
+          ]
+        },
+        "port": {
+          "$id": "#/properties/jdbcConnection/properties/port",
+          "type": "string",
+          "title": "The port schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "1433"
+          ]
+        },
+        "database": {
+          "$id": "#/properties/jdbcConnection/properties/database",
+          "type": "string",
+          "title": "The database schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "AdventureWorks2017"
+          ]
+        },
+        "jdbcUrlKey": {
+          "$id": "#/properties/jdbcConnection/properties/jdbcUrlKey",
+          "type": "string",
+          "title": "The jdbcUrlKey schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "jdbc:sqlserver://localhost:1433;database=AdventureWorks2017"
+          ]
+        },
+        "sid": {
+          "$id": "#/properties/jdbcConnection/properties/sid",
+          "type": "string",
+          "title": "The sid schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "orcl"
+          ]
+        },
+        "authenticationType": {
+          "$id": "#/properties/jdbcConnection/properties/authenticationType",
+          "type": "object",
+          "title": "The authenticationType schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": {},
+          "examples": [
+            {
+              "value": "user-password"
+            }
+          ],
+          "required": [
+            "value"
+          ],
+          "properties": {
+            "value": {
+              "$id": "#/properties/jdbcConnection/properties/authenticationType/properties/value",
+              "type": "string",
+              "title": "The value schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": "",
+              "examples": [
+                "user-password"
+              ]
+            }
+          },
+          "additionalProperties": true
+        },
+        "userKey": {
+          "$id": "#/properties/jdbcConnection/properties/userKey",
+          "type": "string",
+          "title": "The userKey schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "sql-dataarch-srv-weu-01-user"
+          ]
+        },
+        "passwordKey": {
+          "$id": "#/properties/jdbcConnection/properties/passwordKey",
+          "type": "string",
+          "title": "The passwordKey schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "sql-dataarch-srv-weu-01-pass"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "kafkaConnection": {
+      "$id": "#/properties/kafkaConnection",
+      "type": "object",
+      "title": "The kafkaConnection schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": {},
+      "examples": [
+        {
+          "saslMechanism": "PLAIN",
+          "securityProtocol": "SASL_SSL",
+          "bootstrapServers": "server:9093"
+        }
+      ],
+      "required": [
+        "saslMechanism",
+        "securityProtocol",
+        "bootstrapServers"
+      ],
+      "properties": {
+        "saslMechanism": {
+          "$id": "#/properties/kafkaConnection/properties/saslMechanism",
+          "type": "string",
+          "title": "The saslMechanism schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "PLAIN"
+          ]
+        },
+        "securityProtocol": {
+          "$id": "#/properties/kafkaConnection/properties/securityProtocol",
+          "type": "string",
+          "title": "The securityProtocol schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "SASL_SSL"
+          ]
+        },
+        "bootstrapServers": {
+          "$id": "#/properties/kafkaConnection/properties/bootstrapServers",
+          "type": "string",
+          "title": "The bootstrapServers schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "server:9093"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "apiConnection": {
+      "$id": "#/properties/apiConnection",
+      "type": "object",
+      "title": "The apiConnection schema",
+      "description": "API connection properties.",
+      "default": {},
+      "required": [
+        "authenticationType",
+        "url"
+      ],
+      "properties": {
+        "authenticationType": {
+          "$id": "#/properties/apiConnection/properties/authenticationType",
+          "type": "object",
+          "title": "The authenticationType schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": {},
+          "examples": [
+            {
+              "value": "basic"
+            }
+          ],
+          "required": [
+            "value"
+          ],
+          "properties": {
+            "value": {
+              "$id": "#/properties/jdbcConnection/properties/authenticationType/properties/value",
+              "type": "string",
+              "title": "The value schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": "",
+              "examples": [
+                "basic"
+              ]
+            }
+          },
+          "additionalProperties": true
+        },
+        "url": {
+          "$id": "#/properties/apiConnection/properties/url",
+          "type": "string",
+          "title": "The url schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "http://apiurl.org"
+          ]
+        },
+        "userKey": {
+          "$id": "#/properties/apiConnection/properties/userKey",
+          "type": "string",
+          "title": "The userKey schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "api-dataarch-srv-weu-01-user"
+          ]
+        },
+        "passwordKey": {
+          "$id": "#/properties/apiConnection/properties/passwordKey",
+          "type": "string",
+          "title": "The passwordKey schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "api-dataarch-srv-weu-01-pass"
+          ]
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

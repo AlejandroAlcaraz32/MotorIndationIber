@@ -1,0 +1,90 @@
+{
+  "name": "dataset1",
+  "description": "Dataset 1",
+  "sourceName": "source1",
+  "typ": { "value": "file" },
+  "version": 1,
+  "enabled": true,
+  "effectiveDate": "2020-07-03 10:10:00",
+  "ingestionMode": { "value": "full_snapshot" },
+  "validationMode": { "value": "fail_fast" },
+  "createDatabase": false,
+  "database": "database1",
+  "table": "table1",
+  "partitionBy": "yyyy/mm/dd",
+  "permissiveThresholdType": {"value" :"percentage"},
+  "permissiveThreshold": 10,
+  "fileInput":{
+    "format": { "value": "csv" },
+    "filePattern": "<yyyy><mm><dd>_dataset1.csv",
+    "csv": {
+      "encoding": "UTF-8",
+      "header": { "value": "first_line"},
+      "sep":  ""
+    },
+    "json": {
+      "encoding": "UTF-8",
+      "multiline": true,
+      "allowUnquotedFieldNames": false,
+      "allowNumericLeadingZeros": false
+    },
+    "text": {
+      "wholetext": false
+    },
+    "fixed": {
+      "wholetext": false
+    }
+  },
+  "schemaDefinition": {"value": "json-columns"},
+  "schemaFile": "/source1/dataset1/avro-schema.json",
+  "schemaColumns": {
+    "columns": [
+      {
+        "name": "column1",
+        "typ": {"value":  "integer"},
+        "isPrimaryKey": true,
+        "isTimestamp": false,
+        "position": 1,
+        "sensitive": false
+      },
+      {
+        "name": "column2",
+        "typ": {"value":  "string"},
+        "position": 2,
+        "sensitive": false
+      },
+      {
+        "name": "column3",
+        "typ": {"value":  "datetime"},
+        "position": 3,
+        "transformation" : {
+          "typ": {"value": "date"},
+          "pattern": "yyyymmdd"
+        },
+        "sensitive": false
+      },
+      {
+        "name": "column4",
+        "typ": {"value":  "decimal"},
+        "position": 4,
+        "isPrimaryKey": false,
+        "isTimestamp": false,
+        "decimalParameters": {
+          "precision": 10,
+          "scale": 2
+        },
+        "sensitive": false
+      },
+      {
+        "name": "column5",
+        "typ": {"value":  "datetime"},
+        "position": 5,
+        "transformation" : {
+          "typ": {"value": "date"},
+          "pattern": "yyyymmdd HH:mm:ss"
+        },
+        "sensitive": false
+      }
+    ]
+  }
+}

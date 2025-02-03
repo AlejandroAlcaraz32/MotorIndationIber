@@ -1,0 +1,35 @@
+{
+  "name": "transform-testMLTrans7",
+  "description":"Read table from silver",
+  "typ": {"value":  "datalake"},
+  "datalakeTransformation":
+  {
+    "classification": "featureengine",
+    "database": "data_output",
+    "table": "test_6",
+    "partition": "",
+    "mode": {"value":  "overwrite"},
+    "stages": [
+      {
+        "name": "stage table 1",
+        "description": "stage 1",
+        "typ": {"value":  "table"},
+        "stageTable": {
+          "name": "data",
+          "typ": {"value":  "test"},
+          "database": "origin",
+          "table": "data"
+        }
+      },
+      {
+        "name": "stage filter",
+        "description": "stage 2",
+        "typ": {"value":  "filter"},
+        "stageFilter": {
+          "typ": {"value":  "expr"},
+          "filterExpr": "cmesano <= paramCMESANO"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "source-api",
+  "description":"Source API",
+  "typ": {"value":  "api"},
+  "apiConnection": {
+    "authenticationType": {
+      "value": "basic"
+    },
+    "url": "http://services.odata.org/V4/TripPinService",
+    "userKey": "",
+    "passwordKey": ""
+  }
+}

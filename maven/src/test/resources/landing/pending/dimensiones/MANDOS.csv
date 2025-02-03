@@ -1,0 +1,26 @@
+Puestos;Equipo_a_cargo;Puesto_con_Responsabilidad;Mando
+CEO;Si;Si;Si
+Country General Manager;Si;Si;Si
+General Manager;Si;Si;Si
+Chief;Si;Si;Si
+Deputy;No;Si;Si
+Director;Si;Si;Si
+Head of;Si;Si;Si
+Manager;Si;Si;Si
+Area Manager;Si/No;Si;Si
+Team Leader;Si;No;Si
+Project Manager;No;Si;Si
+Account Manager;No;No;No
+Business Line;No;Si;Si
+Legal Counsel;Si;Si;Si
+Analyst;No;No;No
+Architect;No;No;No
+Doctor;No;No;No
+Handler;No;No;No
+Engineer;No;No;No
+Personal Assistant;No;No;No
+Specialist;No;No;No
+Technician;No;No;No
+Underwriter;No;No;No
+Agent;No;No;No
+Product Developer;No;No;No

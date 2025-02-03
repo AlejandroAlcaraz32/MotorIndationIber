@@ -1,0 +1,115 @@
+{
+  "name": "dataset-api-json-columns-2",
+  "description": "dataset api json columns 2",
+  "sourceName": "source-api",
+  "typ": { "value": "api" },
+  "version": 1,
+  "enabled": true,
+  "classification": { "value": "public" },
+  "effectiveDate": "2020-07-03 10:10:00",
+  "ingestionMode": { "value": "full_snapshot" },
+  "validationMode": { "value": "fail_fast" },
+  "createDatabase": true,
+  "database": "database_api",
+  "table": "jsoncolumns_2",
+  "partitionBy": "",
+  "permissiveThresholdType": {"value" :"absolute"},
+  "permissiveThreshold": 10,
+  "apiInput":{
+    "endpoint": "People",
+    "parameters": "",
+    "pagination": {
+      "typ": {"value" :"offset"},
+      "top": "$top",
+      "skip": "$skip",
+      "topSize": 10
+    },
+    "dataIn": "value",
+    "headers": {
+      "content-type": "json"
+    }
+  },
+  "schemaDefinition": {"value": "json-columns"},
+  "schemaFile": "/source-api/dataset-api-full/dataset-api-fullsnapshot_schema.json",
+  "schemaColumns": {
+    "columns": [
+      {
+        "name": "UserName",
+        "typ": {"value":  "string"},
+        "isPrimaryKey": true,
+        "position": 1,
+        "sensitive": false
+      },
+      {
+        "name": "Concurrency",
+        "typ": {"value":  "long"},
+        "position": 2,
+        "sensitive": false
+      },
+      {
+        "name": "FirstName",
+        "typ": {"value":  "string"},
+        "position": 2,
+        "sensitive": false
+      },
+      {
+        "name": "LastName",
+        "typ": {"value":  "string"},
+        "position": 2,
+        "sensitive": false
+      },
+      {
+        "name": "Gender",
+        "typ": {"value":  "string"},
+        "position": 3,
+        "sensitive": false
+      },
+      {
+        "name": "Emails",
+        "typ": {"value":  "array"},
+        "arrayInfo": {
+          "elementType": {"value":  "string"}
+        },
+        "position": 4,
+        "isPrimaryKey": false,
+        "isTimestamp": false,
+        "sensitive": false
+      },
+      {
+        "name": "AddressInfo",
+        "typ": {"value":  "array"},
+        "arrayInfo": {
+          "elementType": {"value":  "struct"}
+        },
+        "position": 4,
+        "isPrimaryKey": false,
+        "isTimestamp": false,
+        "sensitive": false
+      },
+      {
+        "name": "City",
+        "typ": {"value":  "struct"},
+        "parentName": "AddressInfo",
+        "sensitive": false
+      },
+      {
+        "name": "Country",
+        "typ": {"value":  "string"},
+        "parentName": "City",
+        "sensitive": false
+      },
+      {
+        "name": "Region",
+        "typ": {"value":  "string"},
+        "parentName": "City",
+        "sensitive": false
+      },
+      {
+        "name": "Name",
+        "typ": {"value":  "string"},
+        "parentName": "City",
+        "sensitive": false
+      }
+    ]
+  }
+}

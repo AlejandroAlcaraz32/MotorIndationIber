@@ -1,0 +1,71 @@
+{
+  "name": "dataset-api-incremental-users",
+  "description": "dataset api incremental",
+  "sourceName": "source-api",
+  "typ": { "value": "api" },
+  "version": 1,
+  "enabled": true,
+  "classification": { "value": "public" },
+  "effectiveDate": "2020-07-03 10:10:00",
+  "ingestionMode": { "value": "incremental" },
+  "validationMode": { "value": "fail_fast" },
+  "createDatabase": true,
+  "database": "database_api",
+  "table": "incremental_users",
+  "partitionBy": "UserName/Timestamp_yyyy/Timestamp_mm/Timestamp_dd",
+  "permissiveThresholdType": {"value" :"absolute"},
+  "permissiveThreshold": 10,
+  "apiInput":{
+    "endpoint": "People",
+    "parameters": "",
+    "pagination": {
+      "typ": {"value" :"offset"},
+      "top": "$top",
+      "skip": "$skip",
+      "topSize": 10
+    },
+    "dataIn": "value",
+    "headers": {
+      "content-type": "json"
+    }
+  },
+  "schemaDefinition": {"value": "json-columns"},
+  "schemaFile": "/source-api/dataset-api-full/dataset-api-increm-jsoncolumns",
+  "schemaColumns": {
+    "columns": [
+      {
+        "name": "UserName",
+        "typ": {"value":  "string"},
+        "isPrimaryKey": true,
+        "position": 1,
+        "sensitive": false
+      },
+      {
+        "name": "Concurrency",
+        "typ": {"value":  "long"},
+        "position": 2,
+        "sensitive": false
+      },
+      {
+        "name": "FirstName",
+        "typ": {"value":  "string"},
+        "position": 2,
+        "sensitive": false
+      },
+      {
+        "name": "LastName",
+        "typ": {"value":  "string"},
+        "position": 2,
+        "sensitive": false
+      },
+      {
+        "name": "Timestamp",
+        "typ": {"value":  "datetime"},
+        "position": 3,
+        "isTimestamp": true,
+        "isPartitionable": true,
+        "sensitive": false
+      }
+    ]
+  }
+}

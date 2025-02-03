@@ -1,0 +1,9 @@
+{
+  "name": null,
+  "description":"activity for testing error",
+  "transformations": [
+    "demo-transformacion-dlk-error"
+  ],
+  "parameters": [
+  ]
+}

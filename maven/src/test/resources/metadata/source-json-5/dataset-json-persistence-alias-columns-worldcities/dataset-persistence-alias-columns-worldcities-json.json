@@ -1,0 +1,74 @@
+{
+  "name": "persistence-alias-columns-worldcities-json",
+  "description": "Dataset Persistence Alias Columns World Cities Json",
+  "sourceName": "source-json-5",
+  "typ": { "value": "file" },
+  "version": 1,
+  "enabled": true,
+  "classification": { "value": "public" },
+  "effectiveDate": "2020-07-03 10:10:00",
+  "ingestionMode": { "value": "full_snapshot" },
+  "validationMode": { "value": "permissive" },
+  "createDatabase": true,
+  "database": "database5",
+  "table": "persistence_alias_columns_worldcities_json",
+  "partitionBy": "yyyy/mm/dd",
+  "permissiveThresholdType": {"value" :"absolute"},
+  "permissiveThreshold": 1,
+  "fileInput":{
+    "format": { "value": "json" },
+    "json": {
+      "encoding": "UTF-8",
+      "multiline": false,
+      "allowUnquotedFieldNames": false,
+      "allowNumericLeadingZeros": false
+    },
+    "filePattern": "<yyyy><mm><dd>_persistence_alias_columns_worldCities.json"
+  },
+  "schemaDefinition": {"value": "json-schema"},
+  "schemaJson": {
+    "type": "struct",
+    "fields": [
+      {
+        "name": "name",
+        "type": "string",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "country",
+        "type": "string",
+        "nullable": true,
+        "metadata": {
+          "alias": "countryAlias"
+        }
+      },
+      {
+        "name": "subcountry",
+        "type": "string",
+        "nullable": true,
+        "metadata": {
+          "ignorePersistence": true,
+          "alias": "subcountryAlias"
+        }
+      },
+      {
+        "name": "geonameid",
+        "type": "long",
+        "nullable": true,
+        "metadata": {
+          "ignorePersistence": false
+        }
+      },
+      {
+        "name": "timeStamp",
+        "type": "timestamp",
+        "nullable": true,
+        "metadata": {
+          "ignorePersistence": false,
+          "alias": "timeStampAlias"
+        }
+      }
+    ]
+  }
+}

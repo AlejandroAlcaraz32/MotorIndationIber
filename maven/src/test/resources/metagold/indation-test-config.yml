@@ -1,0 +1,53 @@
+metadata:
+  storageAccountName: "maiazwe1desdlk"
+  basePathIngestion: ""
+  basePath: "src/test/resources/metagold/metadataIndation"
+  container: "metadata"
+databricks:
+  secrets:
+    scope: "maiazwe1keydes1"
+landing:
+  storageAccountName: "storage"
+  basePath:  "abfss://landing@storage.dfs.core.windows.net/organization/"
+  container: "landing/maier"
+  landingPath: "landing"
+  errorPath: "error"
+  archivePath: "archive"
+  pendingDirectory: "pending"
+  unknownDirectory: "unknown"
+  invalidDirectory: "invalid"
+  corruptedDirectory: "corrupted"
+  schemaMismatchDirectory: "schema-mismatch"
+  streamingDirectory: "streaming"
+datalake:
+  storageAccountName: "storage"
+  basePath: "metagold/datalake/"
+  container: "datalake"
+  outputType:
+    value: "delta"
+  bronzePath: "bronze"
+  silverPath: "silver"
+  goldPath: "gold"
+  versionsPath: "versions"
+  dataPath: "data"
+  QAerrorPath: "qa/error"
+security:
+  identity:
+    servicePrincipalAppIdKey:    "SPNClientId"
+    servicePrincipalTenantIdKey: "SPNTenant"
+    servicePrincipalPasswordKey: "SPNSecret"
+  encryption:
+    encryptionType:
+      value: "pseudonymization"
+    masterKey: "xxxxxxxxxxxxxxxx"
+    encryptRawFile: true
+    hashSalt: "yyyyyyyyyyyy"
+    encryptionAlgorithm:
+      algorithm:
+        value: "AES"
+      mode:
+        value: "CTR"
+      padding: "NoPadding"
+environment:
+  value: "local"
+tmpDirectory: "tmp"
