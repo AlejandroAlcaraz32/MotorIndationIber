@@ -46,7 +46,7 @@ object SilverDeltaParquetTableWriter extends SilverTableWriter with SparkSession
       val datalakeManager = new DatalakeManager(indationProperties)
 
       val sensitiveSilverWritePath = datalakeManager.writeSilver(dataset.ingestionMode, dataset.database, dataset.table + "_sensitive", sensitiveDataframeToWrite
-        , dataset.partitionBy, sensitivePrimaryKeyColumns, dataset.createDatabase, dataset.classification.value
+        , "", sensitivePrimaryKeyColumns, dataset.createDatabase, dataset.classification.value
         , timeStampColumn, reprocessType, dataset.getAllowPartitionChange,dataset.name)
       val NonSensitiveSilverWritePath = datalakeManager.writeSilver(dataset.ingestionMode, dataset.database, dataset.table, nonSensitiveDataframeToWrite
         , dataset.partitionBy, nonSensitivePrimaryKeyColumns, dataset.createDatabase, dataset.classification.value
